@@ -17,7 +17,7 @@ public class Motor {
         this.tipus = tipus;
     }
 
-    public int getPotencia() {
+    public double getPotencia() {
         return potencia;
     }
 
