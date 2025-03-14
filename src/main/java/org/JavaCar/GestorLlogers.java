@@ -9,4 +9,7 @@ public class GestorLlogers {
         return 0;
     }
 
-}
+    public static List<Vehicle> filtrarPerPreu(List<Vehicle> vehicles, double preuMax) {
+
+        return vehicles;
+    }
