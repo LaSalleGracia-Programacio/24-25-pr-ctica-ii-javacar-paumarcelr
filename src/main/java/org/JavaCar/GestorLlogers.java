@@ -13,7 +13,12 @@ public class GestorLlogers {
     }
 
     public static List<Vehicle> filtrarPerPreu(List<Vehicle> vehicles, double preuMax) {
+        List<Vehicle> flitrada = new ArrayList<>();
 
+        for (int i = 0; i < vehicles.size(); i++) {
+            if (vehicles.get(i).getPreuBase() < preuMax)
+                flitrada.add(vehicles.get(i));
+        }
         return vehicles;
     }
 }
