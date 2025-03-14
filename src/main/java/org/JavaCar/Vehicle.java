@@ -25,31 +25,16 @@ public abstract class  Vehicle implements Llogable{
         return matricula;
     }
 
-    public void setMatricula(String matricula) {
-        this.matricula = matricula;
-    }
-
     public String getMarca() {
         return marca;
-    }
-
-    public void setMarca(String marca) {
-        this.marca = marca;
     }
 
     public String getModel() {
         return model;
     }
 
-    public void setModel(String model) {
-        this.model = model;
-    }
-
-    public double getPreubase() {
+    public double getPreuBase() {
         return preubase;
     }
 
-    public void setPreubase(double preubase) {
-        this.preubase = preubase;
-    }
 }
