@@ -33,7 +33,7 @@ public abstract class  Vehicle implements Llogable{
     }
 
     public double getPreuBase() {
-        return preubase;
+        return preuBase;
     }
 
 }
