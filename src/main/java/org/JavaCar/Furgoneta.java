@@ -7,4 +7,8 @@ public class Furgoneta extends Vehicle{
         super(matricula, marca, model, preuBase, motor, rodes);
         this.capacitatCarga = capacitatCarga;
     }
+
+    public int getCapacitatCarga() {
+        return capacitatCarga;
+    }
 }
