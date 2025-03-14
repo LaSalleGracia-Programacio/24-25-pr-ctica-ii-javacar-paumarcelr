@@ -13,6 +13,10 @@ public abstract class  Vehicle implements Llogable{
         this.preubase = preubase;
     }
 
+    public double calcularPreu(int dies) {
+        return preubase * dies;
+    }
+
     public String getMatricula() {
         return matricula;
     }
