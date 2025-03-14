@@ -8,15 +8,17 @@ public abstract class  Vehicle implements Llogable{
     protected Motor motor;
     protected Roda[] rodes;
 
-    public Vehicle(String matricula, String marca, String model, double preubase) {
+    public Vehicle(String matricula, String marca, String model, double preuBase, Motor motor, Roda[] rodes) {
         this.matricula = matricula;
         this.marca = marca;
         this.model = model;
-        this.preubase = preubase;
+        this.preuBase = preuBase;
+        this.motor = motor;
+        this.rodes = rodes;
     }
 
     public double calcularPreu(int dies) {
-        return preubase * dies;
+        return preuBase * dies;
     }
 
     public String getMatricula() {
