@@ -1,8 +1,8 @@
 package org.JavaCar;
 
 public class Motor {
-    String tipus;
-    int potencia;
+    private String tipus;
+    private double potencia;
 
     public Motor(String tipus, int potencia) {
         this.tipus = tipus;
