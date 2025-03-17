@@ -1,5 +1,8 @@
 package org.JavaCar;
-public abstract class  Vehicle implements Llogable{
+
+import java.util.Arrays;
+
+public abstract class  Vehicle implements Llogable {
     protected String matricula;
     protected String marca;
     protected String model;
@@ -81,21 +84,16 @@ public abstract class  Vehicle implements Llogable{
         etiqueta = calcularEtiquetaAmbiental();
     }
 
-    private EtiquetaAmbiental calcularEtiquetaAmbiental()
-    {
+    private EtiquetaAmbiental calcularEtiquetaAmbiental() {
         EtiquetaAmbiental etiqueta;
-        if (anyMatriculacio < 2000)
-        {
+        if (anyMatriculacio < 2000) {
             etiqueta = EtiquetaAmbiental.SENSE_DISTINTIU;
-        } else if (anyMatriculacio <= 2005)
-        {
+        } else if (anyMatriculacio <= 2005) {
             etiqueta = EtiquetaAmbiental.B;
         } else {
             etiqueta = EtiquetaAmbiental.C;
-            if (motor.getTipus().equals("Hibrid"))
-            {
-                if (enchufable && autonomiaElectirc >= 40)
-                {
+            if (motor.getTipus().equals("Hibrid")) {
+                if (enchufable && autonomiaElectirc >= 40) {
                     etiqueta = EtiquetaAmbiental.ZERO_EMISSIONS;
                 } else {
                     etiqueta = EtiquetaAmbiental.ECO;
@@ -107,4 +105,34 @@ public abstract class  Vehicle implements Llogable{
         return etiqueta;
     }
 
+    @Override
+    public String toString() {
+        if (autonomiaElectirc == 0) {
+            return "Vehicle{" +
+                    "matricula='" + matricula + '\'' +
+                    ", marca='" + marca + '\'' +
+                    ", model='" + model + '\'' +
+                    ", preuBase=" + preuBase +
+                    ", motor=" + motor +
+                    ", rodes=" + Arrays.toString(rodes) +
+                    ", enchufable=" + enchufable +
+                    ", anyMatriculacio=" + anyMatriculacio +
+                    ", etiqueta=" + etiqueta +
+                    '}';
+        } else {
+
+            return "Vehicle{" +
+                    "matricula='" + matricula + '\'' +
+                    ", marca='" + marca + '\'' +
+                    ", model='" + model + '\'' +
+                    ", preuBase=" + preuBase +
+                    ", motor=" + motor +
+                    ", rodes=" + Arrays.toString(rodes) +
+                    ", enchufable=" + enchufable +
+                    ", autonomiaElectirc=" + autonomiaElectirc +
+                    ", anyMatriculacio=" + anyMatriculacio +
+                    ", etiqueta=" + etiqueta +
+                    '}';
+        }
+    }
 }

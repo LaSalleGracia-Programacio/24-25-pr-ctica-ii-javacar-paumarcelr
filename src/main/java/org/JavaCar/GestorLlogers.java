@@ -62,7 +62,7 @@ public class GestorLlogers {
     }
     public static void generarFactura(Vehicle vehicle,int dies){
         System.out.println("========================================");
-        System.out.println("              FACTURA");
+        System.out.println("               FACTURA");
         System.out.println("========================================");
         System.out.println("Marca......: "+vehicle.getMarca());
         System.out.println("Model......: "+ vehicle.getModel());
@@ -71,5 +71,10 @@ public class GestorLlogers {
         System.out.println("PvP........: "+vehicle.calcularPreu(dies)+"€");
         System.out.println("Gràcies per la seva compra ");
         System.out.println("========================================");
+    }
+    public static void mostrarVehicles(List<Vehicle> vehicles){
+        for (int i = 0; i < vehicles.size(); i++) {
+            System.out.println(vehicles.get(i).toString());
+        }
     }
 }

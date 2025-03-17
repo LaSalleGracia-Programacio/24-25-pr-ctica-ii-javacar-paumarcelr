@@ -10,4 +10,9 @@ public class Cotxe extends Vehicle{
     public int getNombrePlaces() {
         return nombrePlaces;
     }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }
