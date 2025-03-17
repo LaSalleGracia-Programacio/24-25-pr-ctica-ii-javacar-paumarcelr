@@ -10,4 +10,14 @@ public class Moto extends Vehicle {
     public int getCilindrada() {
         return cilindrada;
     }
+
+    @Override
+    public double calcularPreu(int dies) {
+        if (cilindrada >500)
+        {
+            return (preuBase + 5) * dies;
+        } else {
+            return super.calcularPreu(dies);
+        }
+    }
 }
