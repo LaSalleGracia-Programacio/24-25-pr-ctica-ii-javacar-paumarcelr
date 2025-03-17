@@ -34,32 +34,17 @@ public class Main {
         vehicles.add(new Moto("3241 ENP","Yamaha","R7",80,525,motorDiesel,rodesMoto));
         vehicles.add(new Moto("2141 ENP","Ducati","Monster",75,150,motorGasolina,rodesMoto));
     }
-    public void menuClient(){
+    public void menuClient() {
+        boolean sortir = false;
+        do {
 
-      int menu = controlErrosMenu("Venvingut a javaCar, les opcions del menú són: "+
-                "\n 1- Alquilar vehicle"+
-                "\n 2- Veure vehicles disponibles"+
-                "\n 3- Filtrar vehicles"+
-                "\n 4- Sortir",1,4);
+            int menu = controlErrosMenu("Venvingut a javaCar, les opcions del menú són: " +
+                    "\n 1- Alquilar vehicle" +
+                    "\n 2- Veure vehicles disponibles" +
+                    "\n 3- Filtrar vehicles" +
+                    "\n 4- Sortir", 1, 4);
 
-      switch (menu){
-          case 1:
-              break;
-          case 2:
-              break;
-          case 3:
-              break;
-          case 4:
-              break;
-      }
-    }
-    public void menuAdmin(){
-        int menu = controlErrosMenu("Que vols fer com Administrador a javCar"+
-                "\n 1- Veure ingresos totals"+
-                "\n 2- Veure vehicles Alquilats"+
-                "\n 3- Veure historial de vehicles"+
-                "\n 4- Sortir",1,4);
-            switch (menu){
+            switch (menu) {
                 case 1:
                     break;
                 case 2:
@@ -67,10 +52,51 @@ public class Main {
                 case 3:
                     break;
                 case 4:
+                    sortir = true;
+                    break;
+            }
+        } while (!sortir);
+    }
+    public void menuAdmin(){
+        boolean sortir = false;
+        do {
+            int menu = controlErrosMenu("Que vols fer com Administrador a javCar" +
+                    "\n 1- Veure ingresos totals" +
+                    "\n 2- Veure vehicles Alquilats" +
+                    "\n 3- Veure historial de vehicles" +
+                    "\n 4- Sortir", 1, 4);
+            switch (menu) {
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    sortir = true;
                     break;
 
             }
+        } while (!sortir);
 
+    }
+    public void adminOClient() {
+        boolean sortir = false;
+        do {
+            int menu = controlErrosMenu("Que ets: " +
+                    "\n 1- Client " +
+                    "\n 2- Administrador" +
+                    "\n 3- Sortir", 1, 2);
+            switch (menu) {
+                case 1:
+                    menuClient();
+                    break;
+                case 2:
+                    menuAdmin();
+                case 3:
+                    sortir = true;
+            }
+        } while (!sortir);
     }
     private static int controlErrosMenu(String missatge, int min, int max) {
 
