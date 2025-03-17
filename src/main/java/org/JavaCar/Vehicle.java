@@ -87,10 +87,15 @@ public abstract class  Vehicle implements Llogable{
             etiqueta = EtiquetaAmbiental.B;
         } else {
             etiqueta = EtiquetaAmbiental.C;
-            if (motor.getTipus().equals("Hibrid") && (!enchufable || autonomiaElectirc < 40))
+            if (motor.getTipus().equals("Hibrid"))
             {
-                etiqueta = EtiquetaAmbiental.ECO;
-            } else {
+                if (enchufable && autonomiaElectirc >= 40)
+                {
+                    etiqueta = EtiquetaAmbiental.ZERO_EMISSIONS;
+                } else {
+                    etiqueta = EtiquetaAmbiental.ECO;
+                }
+            } else if (motor.getTipus().equals("Electric")) {
                 etiqueta = EtiquetaAmbiental.ZERO_EMISSIONS;
             }
         }
