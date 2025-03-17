@@ -56,7 +56,7 @@ public abstract class  Vehicle implements Llogable{
 
     public void setEnchufable(boolean enchufable) {
         this.enchufable = enchufable;
-
+        setEtiqueta();
     }
 
     public double getAutonomiaElectirc() {
@@ -65,6 +65,7 @@ public abstract class  Vehicle implements Llogable{
 
     public void setAutonomiaElectirc(double autonomiaElectirc) {
         this.autonomiaElectirc = autonomiaElectirc;
+        setEtiqueta();
     }
 
     public int getAnyMatriculacio() {
@@ -73,8 +74,12 @@ public abstract class  Vehicle implements Llogable{
 
     public void setAnyMatriculacio(int anyMatriculacio) {
         this.anyMatriculacio = anyMatriculacio;
+        setEtiqueta();
     }
 
+    private void setEtiqueta() {
+        etiqueta = calcularEtiquetaAmbiental();
+    }
 
     private EtiquetaAmbiental calcularEtiquetaAmbiental()
     {
