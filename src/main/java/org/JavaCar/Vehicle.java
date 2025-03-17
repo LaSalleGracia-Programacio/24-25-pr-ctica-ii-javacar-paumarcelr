@@ -56,6 +56,7 @@ public abstract class  Vehicle implements Llogable{
 
     public void setEnchufable(boolean enchufable) {
         this.enchufable = enchufable;
+
     }
 
     public double getAutonomiaElectirc() {
@@ -74,5 +75,26 @@ public abstract class  Vehicle implements Llogable{
         this.anyMatriculacio = anyMatriculacio;
     }
 
+
+    private EtiquetaAmbiental calcularEtiquetaAmbiental()
+    {
+        EtiquetaAmbiental etiqueta;
+        if (anyMatriculacio < 2000)
+        {
+            etiqueta = EtiquetaAmbiental.SENSE_DISTINTIU;
+        } else if (anyMatriculacio <= 2005)
+        {
+            etiqueta = EtiquetaAmbiental.B;
+        } else {
+            etiqueta = EtiquetaAmbiental.C;
+            if (motor.getTipus().equals("Hibrid") && (!enchufable || autonomiaElectirc < 40))
+            {
+                etiqueta = EtiquetaAmbiental.ECO;
+            } else {
+                etiqueta = EtiquetaAmbiental.ZERO_EMISSIONS;
+            }
+        }
+        return etiqueta;
+    }
 
 }
