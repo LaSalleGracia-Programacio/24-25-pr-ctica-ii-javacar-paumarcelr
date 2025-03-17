@@ -7,9 +7,11 @@ import java.util.Scanner;
 public class Main {
     static Scanner input = new Scanner(System.in);
    static List<Vehicle> vehicles = new ArrayList<>();
+    static List<Vehicle> vAlquilats = new ArrayList<>();
 
     public static void main(String[] args) {
         creacioVehicles();
+        GestorLlogers.alquilarVehicle(vehicles,vAlquilats);
     }
     public static void creacioVehicles(){
         Motor motorGasolina = new Motor("Gasolina",123);
