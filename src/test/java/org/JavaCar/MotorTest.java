@@ -15,7 +15,7 @@ public class MotorTest {
 
     @Test
     public void testMotorAmbPotenciaZero() {
-        Motor motor = new Motor("Gasolina", 0);
+        Motor motor = new Motor("Gasolina",12);
 
         assertEquals("Gasolina", motor.getTipus());
         assertEquals(0, motor.getPotencia());
