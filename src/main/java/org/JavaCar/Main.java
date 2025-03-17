@@ -11,6 +11,7 @@ public class Main {
 
     public static void main(String[] args) {
         creacioVehicles();
+        GestorLlogers.mostrarVehicles(vehicles);
     }
     public static void creacioVehicles(){
         Motor motorGasolina = new Motor("Gasolina",123);

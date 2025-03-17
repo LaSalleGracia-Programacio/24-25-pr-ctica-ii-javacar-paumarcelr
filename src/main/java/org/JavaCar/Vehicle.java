@@ -27,6 +27,7 @@ public abstract class  Vehicle implements Llogable {
         enchufable = false;
         autonomiaElectirc = 160;
         anyMatriculacio = 1995;
+        setEtiqueta();
     }
 
     public double calcularPreu(int dies) {
@@ -117,7 +118,7 @@ public abstract class  Vehicle implements Llogable {
                     ", rodes=" + Arrays.toString(rodes) +
                     ", enchufable=" + enchufable +
                     ", anyMatriculacio=" + anyMatriculacio +
-                    ", etiqueta=" + etiqueta +
+                    ", etiqueta=" + etiqueta.toString() +
                     '}';
         } else {
 
@@ -131,7 +132,7 @@ public abstract class  Vehicle implements Llogable {
                     ", enchufable=" + enchufable +
                     ", autonomiaElectirc=" + autonomiaElectirc +
                     ", anyMatriculacio=" + anyMatriculacio +
-                    ", etiqueta=" + etiqueta +
+                    ", etiqueta=" + etiqueta.toString()+
                     '}';
         }
     }
