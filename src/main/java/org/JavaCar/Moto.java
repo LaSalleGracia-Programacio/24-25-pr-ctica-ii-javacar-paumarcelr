@@ -20,4 +20,9 @@ public class Moto extends Vehicle {
             return super.calcularPreu(dies);
         }
     }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }

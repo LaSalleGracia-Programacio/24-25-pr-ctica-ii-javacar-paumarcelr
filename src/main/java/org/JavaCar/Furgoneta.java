@@ -21,4 +21,9 @@ public class Furgoneta extends Vehicle{
             return super.calcularPreu(dies);
         }
     }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }
