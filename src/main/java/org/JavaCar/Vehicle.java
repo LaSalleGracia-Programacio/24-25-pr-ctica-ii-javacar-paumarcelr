@@ -46,6 +46,14 @@ public abstract class  Vehicle implements Llogable{
         return preuBase;
     }
 
+    public Motor getMotor() {
+        return motor;
+    }
+
+    public Roda[] getRodes() {
+        return rodes;
+    }
+
     public EtiquetaAmbiental getEtiqueta() {
         return etiqueta;
     }
