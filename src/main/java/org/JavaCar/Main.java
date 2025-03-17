@@ -10,9 +10,6 @@ public class Main {
 
     public static void main(String[] args) {
         creacioVehicles();
-
-
-
     }
     public static void creacioVehicles(){
         Motor motorGasolina = new Motor("Gasolina",123);
@@ -78,7 +75,6 @@ public class Main {
 
             }
         } while (!sortir);
-
     }
     public void adminOClient() {
         boolean sortir = false;
