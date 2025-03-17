@@ -2,18 +2,22 @@ package org.JavaCar;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
+    static Scanner input = new Scanner(System.in);
    static List<Vehicle> vehicles = new ArrayList<>();
 
     public static void main(String[] args) {
+        creacioVehicles();
+
 
 
     }
-    public void creacioVehicles(){
+    public static void creacioVehicles(){
         Motor motorGasolina = new Motor("Gasolina",123);
-        Motor motorHibrid = new Motor("Diesel",100);
-        Motor motorElectric = new Motor("Gasolina",225);
+        Motor motorHibrid = new Motor("Hibrid",100);
+        Motor motorElectric = new Motor("Electric",225);
         Motor motorDiesel= new Motor("Diesel",200);
 
         Roda[] rodes1 = {new Roda("Michelin", 15), new Roda("Michelin", 15), new Roda("Michelin", 15), new Roda("Michelin", 15)};
@@ -29,10 +33,41 @@ public class Main {
 
         vehicles.add(new Moto("3241 ENP","Yamaha","R7",80,525,motorDiesel,rodesMoto));
         vehicles.add(new Moto("2141 ENP","Ducati","Monster",75,150,motorGasolina,rodesMoto));
-
-
-
-
+    }
+    public void menu(){
+        controlErrosMenu("Venvingut a javaCar, les opcions del menú són: "+
+                "\n 1- Alquilar vehicle"+
+                "\n 2- Veure vehicles disponibles"+
+                "\n 3- Filtrar vehicles"  ,1,3);
 
     }
+
+    private static int controlErrosMenu(String missatge, int min, int max) {
+
+        int x = 0;
+        boolean valorCorrecte = false;
+
+        do {
+            System.out.println(missatge);
+            valorCorrecte = input.hasNextInt();
+
+            if (!valorCorrecte) {
+                System.out.println("ERROR: Valor no enter.");
+                input.nextLine();
+            } else { // Tinc un enter
+                x = input.nextInt();
+                input.nextLine();
+                if (x < min || x > max) {
+                    System.out.println("Opció no valida");
+                    valorCorrecte = false;
+                }
+            }
+        } while (!valorCorrecte);
+
+        return x;
+    }
+
+
+
+
 }
