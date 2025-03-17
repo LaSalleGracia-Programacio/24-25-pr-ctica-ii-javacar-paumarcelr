@@ -44,14 +44,34 @@ public class Main {
 
       switch (menu){
           case 1:
+              break;
           case 2:
+              break;
           case 3:
+              break;
           case 4:
+              break;
       }
+    }
+    public void menuAdmin(){
+        int menu = controlErrosMenu("Que vols fer com Administrador a javCar"+
+                "\n 1- Veure ingresos totals"+
+                "\n 2- Veure vehicles Alquilats"+
+                "\n 3- Veure historial de vehicles"+
+                "\n 4- Sortir",1,4);
+            switch (menu){
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
 
+            }
 
     }
-
     private static int controlErrosMenu(String missatge, int min, int max) {
 
         int x = 0;
@@ -76,8 +96,4 @@ public class Main {
 
         return x;
     }
-
-
-
-
 }
