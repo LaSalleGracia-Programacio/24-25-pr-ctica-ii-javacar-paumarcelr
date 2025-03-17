@@ -27,6 +27,7 @@ public class GestorLlogers {
         String s = "p";
         boolean trobat = false;
         int indice = -1;
+        int dies = 0;
         do {
 
             System.out.print("Introdueix la matricula del vehicle que vols alquilar: ");
@@ -43,17 +44,32 @@ public class GestorLlogers {
             }
             if (trobat) {
                 System.out.println("Quants dies el vols alquilar? ");
-                int dies = input.nextInt();
+                dies = input.nextInt();
                 // mostrem el preu del cotxe que ha dit. Userfrendly mostrant marca i model
                 double preu = vehiclesDisp.get(indice).calcularPreu(dies);
                 System.out.println("El preu final del " + vehiclesDisp.get(indice).getMarca() + " " + vehiclesDisp.get(indice).getModel() + " és de :" + preu + "€");
                 // si confirma li mostrem missatge de confirmació, eliminem el cotxe de la llista de desponibles i l'agrfim a la llista d'alquilats
+
+                System.out.println("Cotxe alquilat correctament :)");
+                generarFactura(vehiclesDisp.get(indice), dies);
                 vAlquilats.add(vehiclesDisp.get(indice));
                 vehiclesDisp.remove(indice);
-                System.out.println("Cotxe alquilat correctament :)");
+
             } else {
                 System.out.println("Matricula no trobada");
             }
         } while (!trobat);
+    }
+    public static void generarFactura(Vehicle vehicle,int dies){
+        System.out.println("========================================");
+        System.out.println("              FACTURA");
+        System.out.println("========================================");
+        System.out.println("Marca......: "+vehicle.getMarca());
+        System.out.println("Model......: "+ vehicle.getModel());
+        System.out.println("Preu Base..: "+vehicle.getPreuBase()+"€");
+        System.out.println("Dies.......: "+dies);
+        System.out.println("PvP........: "+vehicle.calcularPreu(dies)+"€");
+        System.out.println("Gràcies per la seva compra ");
+        System.out.println("========================================");
     }
 }

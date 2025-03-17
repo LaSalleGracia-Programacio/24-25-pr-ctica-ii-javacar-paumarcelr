@@ -11,7 +11,6 @@ public class Main {
 
     public static void main(String[] args) {
         creacioVehicles();
-        GestorLlogers.alquilarVehicle(vehicles,vAlquilats);
     }
     public static void creacioVehicles(){
         Motor motorGasolina = new Motor("Gasolina",123);
@@ -45,6 +44,7 @@ public class Main {
 
             switch (menu) {
                 case 1:
+                    GestorLlogers.alquilarVehicle(vehicles,vAlquilats);
                     break;
                 case 2:
                     break;
