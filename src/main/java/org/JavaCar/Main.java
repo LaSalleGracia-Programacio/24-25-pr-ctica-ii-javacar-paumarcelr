@@ -34,11 +34,21 @@ public class Main {
         vehicles.add(new Moto("3241 ENP","Yamaha","R7",80,525,motorDiesel,rodesMoto));
         vehicles.add(new Moto("2141 ENP","Ducati","Monster",75,150,motorGasolina,rodesMoto));
     }
-    public void menu(){
-        controlErrosMenu("Venvingut a javaCar, les opcions del menú són: "+
+    public void menuClient(){
+
+      int menu = controlErrosMenu("Venvingut a javaCar, les opcions del menú són: "+
                 "\n 1- Alquilar vehicle"+
                 "\n 2- Veure vehicles disponibles"+
-                "\n 3- Filtrar vehicles"  ,1,3);
+                "\n 3- Filtrar vehicles"+
+                "\n 4- Sortir",1,4);
+
+      switch (menu){
+          case 1:
+          case 2:
+          case 3:
+          case 4:
+      }
+
 
     }
 
