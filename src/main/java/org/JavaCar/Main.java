@@ -9,9 +9,9 @@ public class Main {
    static List<Vehicle> vehicles = new ArrayList<>();
     static List<Vehicle> vAlquilats = new ArrayList<>();
     static List<Client> clients = new ArrayList<>();
-    static List<Administrador> administradors = new ArrayList<>();
+
     static Client c;
-    static Administrador a;
+
 
     public static void main(String[] args) {
         creacioVehicles();
@@ -44,11 +44,6 @@ public class Main {
         clients.add(new Client("12345678F","Marcel","Roquet"));
         clients.add(new Client("98765432M","Pau","Sole"));
         clients.add(new Client("12345678M","Cristina","Garcia"));
-
-        administradors.add(new Administrador("13254658F","Pablo","Perez",6));
-        administradors.add(new Administrador("23456789A","Gerard","Perez",2));
-        administradors.add(new Administrador("87654321E","Montse","Perez",10));
-
     }
     //Menus
     public static void menuClient() {
@@ -94,7 +89,7 @@ public class Main {
                     "\n 4- Sortir", 1, 4);
             switch (menu) {
                 case 1:
-                    a.ingressosTotals(vAlquilats);
+                    Administrador.ingressosTotals(vAlquilats);
                     break;
                 case 2:
                     Main.veureVehiclesAlquilats();
@@ -122,8 +117,7 @@ public class Main {
                     menuClient();
                     break;
                 case 2:
-                    a = Administrador.comprovacioAdmin(administradors);
-                    menuAdmin();
+                    Administrador.comprovacioAdmin();;
                     break;
                 case 3:
                     sortir = true;
