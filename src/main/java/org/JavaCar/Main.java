@@ -66,6 +66,37 @@ public class Main {
             }
         } while (!sortir);
     }
+
+    private static void tornarVehicle() {
+        String s ;
+        boolean trobat = false;
+        int indice = -1;
+        int dies = 0;
+        do {
+
+            System.out.print("Introdueix la matricula del vehicle que vols tornar: ");
+            String matricula = input.nextLine();
+
+            // buscar el cotxe a la llista de vehicles alquilats   a partir de la matricula
+            for (int i = 0; i < vAlquilats.size(); i++) {
+                // si coincideix calculem el preu a partir dels dies
+                if (matricula.equals(vAlquilats.get(i).matricula)) {
+                    indice = i;
+                    trobat = true;
+                    break;
+                }
+            }
+            if (trobat) {
+                System.out.println("Cotxe tornat correctament :)");
+                vehicles.add(vAlquilats.get(indice));
+                vAlquilats.remove(indice);
+
+            } else {
+                System.out.println("Matricula no trobada");
+            }
+        } while (!trobat);
+    }
+
     public static void menuAdmin(){
         boolean sortir = false;
         do {
