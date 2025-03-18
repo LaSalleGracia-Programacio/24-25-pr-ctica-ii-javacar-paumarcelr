@@ -24,12 +24,6 @@ public abstract class Persona {
     }
 
 
-    @Override
-    public String toString() {
-        return "Persona{" +
-                "dni=" + dni +
-                ", nom='" + nom + '\'' +
-                ", cognom='" + cognom + '\'' +
-                '}';
-    }
+
+
 }

@@ -4,13 +4,30 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Client extends Persona {
+public class Client {
     static Scanner input = new Scanner(System.in);
+    private String dni;
+    private String nom;
+    private String cognom;
     private  List<Vehicle> vehiclesClient;
 
     public Client(String dni, String nom, String cognom) {
-        super(dni, nom, cognom);
+        this.dni = dni;
+        this.nom = nom;
+        this.cognom = cognom;
         this.vehiclesClient = new ArrayList<>();
+    }
+
+    public String getDni() {
+        return dni;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public String getCognom() {
+        return cognom;
     }
 
     public List<Vehicle> getVehiclesClient() {
@@ -38,7 +55,7 @@ public class Client extends Persona {
                 }
                 if (trobat) {
                     Vehicle vehicle = vehiclesClient.get(indice);
-                    System.out.println("Cotxe tornat correctament :)");
+                    System.out.println("Vehicle tornat correctament :)");
                     vehicles.add(vehicle);
                     vAlquilats.remove(vehicle);
                     vehiclesClient.remove(vehicle);
@@ -89,7 +106,7 @@ public class Client extends Persona {
                 vehiclesClient.add(vehicle);
                 vehiclesDisp.remove(indice);
 
-                System.out.println("Cotxe alquilat correctament :)");
+                System.out.println("Vehicle alquilat correctament :)");
 
 
             } else {
@@ -162,11 +179,11 @@ public class Client extends Persona {
     }
     public void veureVehiclesPropis(){
         if (vehiclesClient.isEmpty()){
-            System.out.println("Encara no tens contxes alquilats.");
+            System.out.println("Encara no tens vehicles alquilats.");
         } else {
             if (vehiclesClient.size() >= 3){
                 System.out.println("Wow "+getNom()+" ! Tens"+vehiclesClient.size()+" alquilats.");
-                System.out.println("Aqui tens la informació dels cotxes: ");
+                System.out.println("Aqui tens la informació dels vehicles: ");
             } else {
                 System.out.println("Aquest son els teus vehicles: ");
             }
