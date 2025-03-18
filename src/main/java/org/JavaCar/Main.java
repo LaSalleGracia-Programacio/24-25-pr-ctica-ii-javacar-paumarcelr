@@ -76,7 +76,7 @@ public class Main {
                     "\n 4- Sortir", 1, 4);
             switch (menu) {
                 case 1:
-                    Main.ingressosTotals();
+                    Administrador.ingressosTotals(vAlquilats);
                     break;
                 case 2:
                     Main.veureVehiclesAlquilats();
@@ -152,12 +152,6 @@ public class Main {
 
 
     //Funcions d'administrador/gestor
-    public static void ingressosTotals()
-    {
-        int dies = controlErrosMenu("Quants dies estan els cotxes alquilats?", 1, 30);
-        double ingressos = GestorLloguers.calcularIngressosTotals(vAlquilats, dies);
-        System.out.println("Els ingressos totals actuals son: " + ingressos + "€");
-    }
 
     public static void veureVehiclesAlquilats()
     {
