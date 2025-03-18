@@ -21,5 +21,22 @@ public class GestioFitxers {
         }
     }
 
+    public static List<InfoAlquiler> llegirVehicles() {
+        List<InfoAlquiler> infoList = new ArrayList<>();
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(nomFitxer))) {
+            while (true) {
+                try {
+                    InfoAlquiler info = (InfoAlquiler) ois.readObject();
+                    infoList.add(info);
+                } catch (EOFException eof) {
+                    // End of file reached, break the loop.
+                    break;
+                }
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return infoList;
+    }
 }
 
