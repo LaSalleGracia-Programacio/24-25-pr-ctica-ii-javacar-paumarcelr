@@ -18,33 +18,39 @@ public class Client extends Persona {
     }
 
     public void tornarVehicle(List<Vehicle> vehicles, List<Vehicle> vAlquilats) {
-        boolean trobat = false;
-        int indice = -1;
-        do {
-            System.out.print("Introdueix la matricula del vehicle que vols tornar: ");
-            String matricula = input.nextLine();
+        if (vehiclesClient.isEmpty()){
+            System.out.println("No tens ningun vehicle alquilat");
+        } else{
+            boolean trobat = false;
+            int indice = -1;
+            do {
+                System.out.print("Introdueix la matricula del vehicle que vols tornar: ");
+                String matricula = input.nextLine();
 
-            // buscar el cotxe a la llista de vehicles alquilats   a partir de la matricula
-            for (int i = 0; i < vehiclesClient.size() ; i++) {
-                // si coincideix calculem el preu a partir dels dies
-                if (matricula.equalsIgnoreCase(vehiclesClient.get(i).getMatricula())) {
-                    indice = i;
-                    trobat = true;
-                    break;
+                // buscar el cotxe a la llista de vehicles alquilats   a partir de la matricula
+                for (int i = 0; i < vehiclesClient.size() ; i++) {
+                    // si coincideix calculem el preu a partir dels dies
+                    if (matricula.equalsIgnoreCase(vehiclesClient.get(i).getMatricula())) {
+                        indice = i;
+                        trobat = true;
+                        break;
+                    }
                 }
-            }
-            if (trobat) {
-                Vehicle vehicle = vehiclesClient.get(indice);
-                System.out.println("Cotxe tornat correctament :)");
-                vehicles.add(vehicle);
-                vAlquilats.remove(vehicle);
-                vehiclesClient.remove(vehicle);
+                if (trobat) {
+                    Vehicle vehicle = vehiclesClient.get(indice);
+                    System.out.println("Cotxe tornat correctament :)");
+                    vehicles.add(vehicle);
+                    vAlquilats.remove(vehicle);
+                    vehiclesClient.remove(vehicle);
 
 
-            } else {
-                System.out.println("Matricula no trobada");
-            }
-        } while (!trobat);
+                } else {
+                    System.out.println("Matricula no trobada");
+                }
+            } while (!trobat);
+
+        }
+
     }
     public  void alquilarVehicle(List<Vehicle> vehiclesDisp, List<Vehicle> vAlquilats) {
         boolean trobat = false;
@@ -156,7 +162,7 @@ public class Client extends Persona {
     }
     public void veureVehiclesPropis(){
         if (vehiclesClient.isEmpty()){
-            System.out.println("Encara no tens contxes alquilats");
+            System.out.println("Encara no tens contxes alquilats.");
         } else {
             if (vehiclesClient.size() >= 3){
                 System.out.println("Wow "+getNom()+" ! Tens"+vehiclesClient.size()+" alquilats.");
