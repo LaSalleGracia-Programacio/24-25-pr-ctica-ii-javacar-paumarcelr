@@ -55,25 +55,25 @@ public class Main {
         boolean sortir = false;
         do {
 
-            int menu = controlErrosMenu("Venvingut a javaCar, les opcions del menú són: " +
+            int menu = controlErrosMenu("Venvingut a javaCar " +c.getNom()+", les opcions del menú són: " +
                     "\n 1- Alquilar vehicle" +
                     "\n 2- Veure vehicles disponibles" +
                     "\n 3- Filtrar vehicles" +
                     "\n 4- Tornar vehicle alquilat"+
-                    "\n 4- Sortir", 1, 4);
+                    "\n 5- Sortir", 1, 5);
 
             switch (menu) {
                 case 1:
-                    Client.alquilarVehicle(vehicles,vAlquilats);
+                    c.alquilarVehicle(vehicles,vAlquilats);
                     break;
                 case 2:
                     mostrarVehicles(vehicles);
                     break;
                 case 3:
-                    Client.filtrarVehicles(vehicles);
+                    c.filtrarVehicles(vehicles);
                     break;
                 case 4:
-                    Client.tornarVehicle(vehicles,vAlquilats);
+                    c.tornarVehicle(vehicles,vAlquilats);
                     break;
                 case 5:
                     sortir = true;
@@ -115,6 +115,7 @@ public class Main {
                     "\n 3- Sortir", 1, 3);
             switch (menu) {
                 case 1:
+                    c = Client.comprovacioClient(clients);
                     menuClient();
                     break;
                 case 2:

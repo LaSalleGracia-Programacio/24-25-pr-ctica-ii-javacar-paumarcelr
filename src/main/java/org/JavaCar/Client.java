@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Client extends Persona {
     static Scanner input = new Scanner(System.in);
-    private static List<Vehicle> vehiclesClient;
+    private  List<Vehicle> vehiclesClient;
 
     public Client(String dni, String nom, String cognom) {
         super(dni, nom, cognom);
@@ -17,11 +17,9 @@ public class Client extends Persona {
         return this.vehiclesClient;
     }
 
-    public static void tornarVehicle(List<Vehicle> vehicles, List<Vehicle> vAlquilats) {
-        String s ;
+    public void tornarVehicle(List<Vehicle> vehicles, List<Vehicle> vAlquilats) {
         boolean trobat = false;
         int indice = -1;
-        int dies = 0;
         do {
             System.out.print("Introdueix la matricula del vehicle que vols tornar: ");
             String matricula = input.nextLine();
@@ -29,38 +27,41 @@ public class Client extends Persona {
             // buscar el cotxe a la llista de vehicles alquilats   a partir de la matricula
             for (int i = 0; i < vehiclesClient.size() ; i++) {
                 // si coincideix calculem el preu a partir dels dies
-                if (matricula.equals(vehiclesClient.get(i).matricula)) {
+                if (matricula.equalsIgnoreCase(vehiclesClient.get(i).getMatricula())) {
                     indice = i;
                     trobat = true;
                     break;
                 }
             }
             if (trobat) {
+                Vehicle vehicle = vehiclesClient.get(indice);
                 System.out.println("Cotxe tornat correctament :)");
-                vehicles.add(vehicles.get(indice));
-                vehiclesClient.remove(indice);
-                vAlquilats.remove(indice);
+                vehicles.add(vehicle);
+                vAlquilats.remove(vehicle);
+                vehiclesClient.remove(vehicle);
+
 
             } else {
                 System.out.println("Matricula no trobada");
             }
         } while (!trobat);
     }
-    public static void alquilarVehicle(List<Vehicle> vehiclesDisp, List<Vehicle> vAlquilats) {
-        String s = "p";
+    public  void alquilarVehicle(List<Vehicle> vehiclesDisp, List<Vehicle> vAlquilats) {
         boolean trobat = false;
         int indice = -1;
         int dies = 0;
+        System.out.println("Aquest són els vehicles que tens disponibles");
+        Main.mostrarVehicles(vehiclesDisp);
+
         do {
-            System.out.println("Aquest són els vehicles que tens disponibles");
-            Main.mostrarVehicles(vehiclesDisp);
+
             System.out.print("Introdueix la matricula del vehicle que vols alquilar: ");
             String matricula = input.nextLine();
 
             // buscar el cotxe a la llista de vehicles disponibles a partir de la matricula
             for (int i = 0; i < vehiclesDisp.size(); i++) {
                 // si coincideix calculem el preu a partir dels dies
-                if (matricula.equals(vehiclesDisp.get(i).matricula)) {
+                if (matricula.equals(vehiclesDisp.get(i).getMatricula())) {
                     indice = i;
                     trobat = true;
                     break;
@@ -69,23 +70,30 @@ public class Client extends Persona {
             if (trobat) {
                 System.out.println("Quants dies el vols alquilar? ");
                 dies = input.nextInt();
+                input.nextLine();
+                Vehicle vehicle = vehiclesDisp.get(indice);
                 // mostrem el preu del cotxe que ha dit. Userfrendly mostrant marca i model
-                double preu = vehiclesDisp.get(indice).calcularPreu(dies);
-                System.out.println("El preu final del " + vehiclesDisp.get(indice).getMarca() + " " + vehiclesDisp.get(indice).getModel() + " és de :" + preu + "€");
+                double preu = vehicle.calcularPreu(dies);
+                System.out.println("El preu final del " + vehicle.getMarca() + " " + vehicle.getModel() + " és de :" + preu + "€");
                 // si confirma li mostrem missatge de confirmació, eliminem el cotxe de la llista de desponibles i l'agrfim a la llista d'alquilats
 
-                System.out.println("Cotxe alquilat correctament :)");
-                generarFactura(vehiclesDisp.get(indice), dies);
-                vAlquilats.add(vehiclesDisp.get(indice));
-                vehiclesClient.add(vAlquilats.get(indice));
+
+                generarFactura(vehicle, dies);
+                vAlquilats.add(vehicle);
+                vehiclesClient.add(vehicle);
                 vehiclesDisp.remove(indice);
+
+                System.out.println("Cotxe alquilat correctament :)");
 
 
             } else {
                 System.out.println("Matricula no trobada");
             }
-        } while (!trobat);
+
+        } while (!trobat) ;
     }
+
+
     public static void generarFactura(Vehicle vehicle,int dies){
         System.out.println("========================================");
         System.out.println("               FACTURA");
@@ -99,7 +107,7 @@ public class Client extends Persona {
         System.out.println("========================================");
     }
 
-    public static void filtrarVehicles(List<Vehicle> vehicles){
+    public void filtrarVehicles(List<Vehicle> vehicles){
         System.out.println("Quin és el preu màxim que vols establir?");
         double preuMax = input.nextDouble();
         List<Vehicle> filtrada = GestorLloguers.filtrarPerPreu(vehicles,preuMax);
@@ -118,6 +126,32 @@ public class Client extends Persona {
     }
 
     public static Client comprovacioClient(List<Client> clients){
+        int index = -1;
 
+        do {
+        // demanem credencials
+        System.out.print("Introdueix el teu nom: ");
+        String nom = input.nextLine();
+
+        System.out.print("Introdueix el teu DNI: ");
+        String dni = input.nextLine();
+        // fem un bucle for amb una doble condicio per comprobar si les dos credencials coincideixen
+        for (int i = 0; i < clients.size(); i++) {
+            if (nom.equalsIgnoreCase(clients.get(i).getNom())){
+                if (dni.equalsIgnoreCase(clients.get(i).getDni())){
+                    index = i;
+                    break;
+                }
+                }
+            }
+        if (index !=-1){
+            return clients.get(index);
+        } else {
+            System.out.println("DNI o nom incorrecte");
+        }
+
+        }  while (index == -1);
+
+        return null;
     }
 }
