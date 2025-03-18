@@ -203,4 +203,13 @@ public class Main {
         double ingressos = GestorLloguers.calcularIngressosTotals(vAlquilats, dies);
         System.out.println("Els ingressos totals actuals son: " + ingressos + "€");
     }
+
+    public static void veureVehiclesAlquilats()
+    {
+        System.out.println("Els vehicles que actualment estan alquilats son:");
+        for (Vehicle v : vAlquilats)
+        {
+            System.out.println(v.toString());
+        }
+    }
 }
