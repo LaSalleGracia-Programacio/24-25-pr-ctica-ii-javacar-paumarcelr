@@ -1,6 +1,8 @@
 package org.JavaCar;
 
-public class Roda {
+import java.io.Serializable;
+
+public class Roda implements Serializable {
 
     private String marca;
     private double diametre;

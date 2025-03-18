@@ -11,8 +11,13 @@ public class Main {
 
     public static void main(String[] args) {
         creacioVehicles();
+//        List<InfoAlquiler> vehicles = GestioFitxers.llegirVehicles();
+//        for (InfoAlquiler ia : vehicles)
+//        {
+//            System.out.println(ia.getVehicle().toString());
+//            System.out.println(ia.getDiesAlquilats());
+//        }
         adminOClient();
-
     }
     public static void creacioVehicles(){
         Motor motorGasolina = new Motor("Gasolina",123);
@@ -68,7 +73,7 @@ public class Main {
             int menu = controlErrosMenu("Que vols fer com Administrador a javCar" +
                     "\n 1- Veure ingresos totals" +
                     "\n 2- Veure vehicles Alquilats" +
-                    "\n 3- Veure historial de vehicles" +
+                    "\n 3- Veure historial de vehicles alquilats de tots els usuaris" +
                     "\n 4- Sortir", 1, 4);
             switch (menu) {
                 case 1:
@@ -166,6 +171,7 @@ public class Main {
                 generarFactura(vehiclesDisp.get(indice), dies);
                 vAlquilats.add(vehiclesDisp.get(indice));
                 vehiclesDisp.remove(indice);
+//                GestioFitxers.escriureVehicle(vAlquilats.get(vAlquilats.size() - 1), dies);
 
             } else {
                 System.out.println("Matricula no trobada");
@@ -214,4 +220,6 @@ public class Main {
             System.out.println(v.toString());
         }
     }
+
+//    public static void veureHistorialDeVehicles()
 }

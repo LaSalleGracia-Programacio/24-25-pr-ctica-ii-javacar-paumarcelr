@@ -1,6 +1,8 @@
 package org.JavaCar;
 
-public class Motor {
+import java.io.Serializable;
+
+public class Motor implements Serializable {
     private String tipus;
     private int potencia;
 
