@@ -154,4 +154,22 @@ public class Client extends Persona {
 
         return null;
     }
+    public void veureVehiclesPropis(){
+        if (vehiclesClient.isEmpty()){
+            System.out.println("Encara no tens contxes alquilats");
+        } else {
+            if (vehiclesClient.size() >= 3){
+                System.out.println("Wow "+getNom()+" ! Tens"+vehiclesClient.size()+" alquilats.");
+                System.out.println("Aqui tens la informació dels cotxes: ");
+            } else {
+                System.out.println("Aquest son els teus vehicles: ");
+            }
+
+            for (int i = 0; i < vehiclesClient.size(); i++) {
+                System.out.println(vehiclesClient.get(i).toString());
+            }
+        }
+    }
+
+
 }
