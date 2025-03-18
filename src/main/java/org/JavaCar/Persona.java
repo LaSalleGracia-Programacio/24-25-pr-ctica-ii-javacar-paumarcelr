@@ -23,6 +23,7 @@ public abstract class Persona {
         return cognom;
     }
 
+
     @Override
     public String toString() {
         return "Persona{" +

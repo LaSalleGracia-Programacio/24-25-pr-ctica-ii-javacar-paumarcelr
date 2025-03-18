@@ -49,16 +49,16 @@ public class Main {
 
             switch (menu) {
                 case 1:
-                    alquilarVehicle(vehicles,vAlquilats);
+                    Client.alquilarVehicle(vehicles,vAlquilats);
                     break;
                 case 2:
                     mostrarVehicles(vehicles);
                     break;
                 case 3:
-                    filtrarVehicles();
+                    Client.filtrarVehicles(vehicles);
                     break;
                 case 4:
-                    tornarVehicle();
+                    Client.tornarVehicle(vehicles,vAlquilats);
                     break;
                 case 5:
                     sortir = true;
@@ -66,50 +66,20 @@ public class Main {
             }
         } while (!sortir);
     }
-
-    private static void tornarVehicle() {
-        String s ;
-        boolean trobat = false;
-        int indice = -1;
-        int dies = 0;
-        do {
-            System.out.print("Introdueix la matricula del vehicle que vols tornar: ");
-            String matricula = input.nextLine();
-
-            // buscar el cotxe a la llista de vehicles alquilats   a partir de la matricula
-            for (int i = 0; i < vAlquilats.size(); i++) {
-                // si coincideix calculem el preu a partir dels dies
-                if (matricula.equals(vAlquilats.get(i).matricula)) {
-                    indice = i;
-                    trobat = true;
-                    break;
-                }
-            }
-            if (trobat) {
-                System.out.println("Cotxe tornat correctament :)");
-                vehicles.add(vAlquilats.get(indice));
-                vAlquilats.remove(indice);
-
-            } else {
-                System.out.println("Matricula no trobada");
-            }
-        } while (!trobat);
-    }
-
     public static void menuAdmin(){
         boolean sortir = false;
         do {
-            int menu = controlErrosMenu("Que vols fer com Administrador a javCar" +
+            int menu = Main.controlErrosMenu("Que vols fer com Administrador a javCar" +
                     "\n 1- Veure ingresos totals" +
                     "\n 2- Veure vehicles Alquilats" +
                     "\n 3- Veure historial de vehicles" +
                     "\n 4- Sortir", 1, 4);
             switch (menu) {
                 case 1:
-                    ingressosTotals();
+                    Main.ingressosTotals();
                     break;
                 case 2:
-                    veureVehiclesAlquilats();
+                    Main.veureVehiclesAlquilats();
                     break;
                 case 3:
                     break;
@@ -120,6 +90,9 @@ public class Main {
             }
         } while (!sortir);
     }
+
+
+
     public static void adminOClient() {
         boolean sortir = false;
         do {
@@ -143,7 +116,7 @@ public class Main {
     }
 
     //Control d'errors
-    private static int controlErrosMenu(String missatge, int min, int max) {
+    static int controlErrosMenu(String missatge, int min, int max) {
 
         int x = 0;
         boolean valorCorrecte = false;
@@ -169,69 +142,14 @@ public class Main {
     }
 
     //Funcions d'usuari
-    public static void alquilarVehicle(List<Vehicle> vehiclesDisp, List<Vehicle> vAlquilats) {
-        String s = "p";
-        boolean trobat = false;
-        int indice = -1;
-        int dies = 0;
-        do {
-            System.out.println("Aquest són els vehicles que tens disponibles");
-            mostrarVehicles(vehiclesDisp);
-            System.out.print("Introdueix la matricula del vehicle que vols alquilar: ");
-            String matricula = input.nextLine();
 
-            // buscar el cotxe a la llista de vehicles disponibles a partir de la matricula
-            for (int i = 0; i < vehiclesDisp.size(); i++) {
-                // si coincideix calculem el preu a partir dels dies
-                if (matricula.equals(vehiclesDisp.get(i).matricula)) {
-                    indice = i;
-                    trobat = true;
-                    break;
-                }
-            }
-            if (trobat) {
-                System.out.println("Quants dies el vols alquilar? ");
-                dies = input.nextInt();
-                // mostrem el preu del cotxe que ha dit. Userfrendly mostrant marca i model
-                double preu = vehiclesDisp.get(indice).calcularPreu(dies);
-                System.out.println("El preu final del " + vehiclesDisp.get(indice).getMarca() + " " + vehiclesDisp.get(indice).getModel() + " és de :" + preu + "€");
-                // si confirma li mostrem missatge de confirmació, eliminem el cotxe de la llista de desponibles i l'agrfim a la llista d'alquilats
 
-                System.out.println("Cotxe alquilat correctament :)");
-                generarFactura(vehiclesDisp.get(indice), dies);
-                vAlquilats.add(vehiclesDisp.get(indice));
-                vehiclesDisp.remove(indice);
-
-            } else {
-                System.out.println("Matricula no trobada");
-            }
-        } while (!trobat);
-    }
-    public static void generarFactura(Vehicle vehicle,int dies){
-        System.out.println("========================================");
-        System.out.println("               FACTURA");
-        System.out.println("========================================");
-        System.out.println("Marca......: "+vehicle.getMarca());
-        System.out.println("Model......: "+ vehicle.getModel());
-        System.out.println("Preu Base..: "+vehicle.getPreuBase()+"€");
-        System.out.println("Dies.......: "+dies);
-        System.out.println("PvP........: "+vehicle.calcularPreu(dies)+"€");
-        System.out.println("Gràcies per la seva compra ");
-        System.out.println("========================================");
-    }
     public static void mostrarVehicles(List<Vehicle> vehicles){
         for (int i = 0; i < vehicles.size(); i++) {
             System.out.println(vehicles.get(i).toString());
         }
     }
-    public static void filtrarVehicles(){
-        System.out.println("Quin és el preu màxim que vols establir?");
-        double preuMax = input.nextDouble();
-       List<Vehicle> filtrada = GestorLloguers.filtrarPerPreu(vehicles,preuMax);
-        for (int i = 0; i < filtrada.size(); i++) {
-            System.out.println(filtrada.get(i).toString());
-        }
-    }
+
 
     //Funcions d'administrador/gestor
     public static void ingressosTotals()
