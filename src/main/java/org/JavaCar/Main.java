@@ -75,6 +75,7 @@ public class Main {
                     ingressosTotals();
                     break;
                 case 2:
+                    veureVehiclesAlquilats();
                     break;
                 case 3:
                     break;
