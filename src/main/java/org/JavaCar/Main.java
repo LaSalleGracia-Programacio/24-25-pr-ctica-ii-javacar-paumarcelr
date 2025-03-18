@@ -94,7 +94,7 @@ public class Main {
                     "\n 4- Sortir", 1, 4);
             switch (menu) {
                 case 1:
-                    Administrador.ingressosTotals(vAlquilats);
+                    a.ingressosTotals(vAlquilats);
                     break;
                 case 2:
                     Main.veureVehiclesAlquilats();
@@ -122,6 +122,7 @@ public class Main {
                     menuClient();
                     break;
                 case 2:
+                    a = Administrador.comprovacioAdmin(administradors);
                     menuAdmin();
                     break;
                 case 3:
@@ -165,7 +166,6 @@ public class Main {
             System.out.println(vehicles.get(i).toString());
         }
     }
-
 
     //Funcions d'administrador/gestor
 
