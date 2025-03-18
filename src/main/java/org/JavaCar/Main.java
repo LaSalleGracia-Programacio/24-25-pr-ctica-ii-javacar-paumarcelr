@@ -73,7 +73,6 @@ public class Main {
         int indice = -1;
         int dies = 0;
         do {
-
             System.out.print("Introdueix la matricula del vehicle que vols tornar: ");
             String matricula = input.nextLine();
 
@@ -176,7 +175,8 @@ public class Main {
         int indice = -1;
         int dies = 0;
         do {
-
+            System.out.println("Aquest són els vehicles que tens disponibles");
+            mostrarVehicles(vehiclesDisp);
             System.out.print("Introdueix la matricula del vehicle que vols alquilar: ");
             String matricula = input.nextLine();
 
