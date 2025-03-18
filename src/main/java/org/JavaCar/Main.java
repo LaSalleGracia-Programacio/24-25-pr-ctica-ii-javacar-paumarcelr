@@ -59,8 +59,9 @@ public class Main {
                     "\n 1- Alquilar vehicle" +
                     "\n 2- Veure vehicles disponibles" +
                     "\n 3- Filtrar vehicles" +
-                    "\n 4- Tornar vehicle alquilat"+
-                    "\n 5- Sortir", 1, 5);
+                    "\n 4- Veure els meus vehicles"+
+                    "\n 5- Tornar vehicle alquilat"+
+                    "\n 6- Sortir", 1, 6);
 
             switch (menu) {
                 case 1:
@@ -73,9 +74,11 @@ public class Main {
                     c.filtrarVehicles(vehicles);
                     break;
                 case 4:
-                    c.tornarVehicle(vehicles,vAlquilats);
+                    c.veureVehiclesPropis();
                     break;
                 case 5:
+                    c.tornarVehicle(vehicles,vAlquilats);
+                case 6:
                     sortir = true;
                     break;
             }
@@ -156,7 +159,6 @@ public class Main {
     }
 
     //Funcions d'usuari
-
 
     public static void mostrarVehicles(List<Vehicle> vehicles){
         for (int i = 0; i < vehicles.size(); i++) {
