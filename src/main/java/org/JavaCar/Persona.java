@@ -1,18 +1,18 @@
 package org.JavaCar;
 
-public class Persona {
-    protected int id;
+public abstract class Persona {
+    protected int dni;
     protected String nom;
     protected String cognom;
 
     public Persona(int id, String nom, String cognom) {
-        this.id = id;
+        this.dni = id;
         this.nom = nom;
         this.cognom = cognom;
     }
 
-    public int getId() {
-        return id;
+    public int getDni() {
+        return dni;
     }
 
     public String getNom() {
@@ -21,5 +21,14 @@ public class Persona {
 
     public String getCognom() {
         return cognom;
+    }
+
+    @Override
+    public String toString() {
+        return "Persona{" +
+                "dni=" + dni +
+                ", nom='" + nom + '\'' +
+                ", cognom='" + cognom + '\'' +
+                '}';
     }
 }
