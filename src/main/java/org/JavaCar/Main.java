@@ -44,6 +44,7 @@ public class Main {
                     "\n 1- Alquilar vehicle" +
                     "\n 2- Veure vehicles disponibles" +
                     "\n 3- Filtrar vehicles" +
+                    "\n 4- Tornar vehicle alquilat"+
                     "\n 4- Sortir", 1, 4);
 
             switch (menu) {
@@ -57,6 +58,9 @@ public class Main {
                     filtrarVehicles();
                     break;
                 case 4:
+                    tornarVehicle();
+                    break;
+                case 5:
                     sortir = true;
                     break;
             }
