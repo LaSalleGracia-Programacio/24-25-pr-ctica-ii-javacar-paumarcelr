@@ -11,7 +11,7 @@ public class Main {
 
     public static void main(String[] args) {
         creacioVehicles();
-
+        adminOClient();
 
     }
     public static void creacioVehicles(){
@@ -34,7 +34,7 @@ public class Main {
         vehicles.add(new Moto("3241 ENP","Yamaha","R7",80,525,motorDiesel,rodesMoto));
         vehicles.add(new Moto("2141 ENP","Ducati","Monster",75,150,motorGasolina,rodesMoto));
     }
-    public void menuClient() {
+    public static void menuClient() {
         boolean sortir = false;
         do {
 
@@ -60,7 +60,7 @@ public class Main {
             }
         } while (!sortir);
     }
-    public void menuAdmin(){
+    public static void menuAdmin(){
         boolean sortir = false;
         do {
             int menu = controlErrosMenu("Que vols fer com Administrador a javCar" +
@@ -82,7 +82,7 @@ public class Main {
             }
         } while (!sortir);
     }
-    public void adminOClient() {
+    public static void adminOClient() {
         boolean sortir = false;
         do {
             int menu = controlErrosMenu("Que ets: " +
@@ -95,8 +95,10 @@ public class Main {
                     break;
                 case 2:
                     menuAdmin();
+                    break;
                 case 3:
                     sortir = true;
+                    break;
             }
         } while (!sortir);
     }
@@ -124,7 +126,7 @@ public class Main {
 
         return x;
     }
-    public  void alquilarVehicle(List<Vehicle> vehiclesDisp, List<Vehicle> vAlquilats) {
+    public static void alquilarVehicle(List<Vehicle> vehiclesDisp, List<Vehicle> vAlquilats) {
         String s = "p";
         boolean trobat = false;
         int indice = -1;
