@@ -92,7 +92,7 @@ public class Main {
             int menu = controlErrosMenu("Que ets: " +
                     "\n 1- Client " +
                     "\n 2- Administrador" +
-                    "\n 3- Sortir", 1, 2);
+                    "\n 3- Sortir", 1, 3);
             switch (menu) {
                 case 1:
                     menuClient();
@@ -102,6 +102,7 @@ public class Main {
                     break;
                 case 3:
                     sortir = true;
+                    System.out.println("Fins aviat!");
                     break;
             }
         } while (!sortir);
