@@ -72,6 +72,7 @@ public class Main {
                     "\n 4- Sortir", 1, 4);
             switch (menu) {
                 case 1:
+                    ingressosTotals();
                     break;
                 case 2:
                     break;
