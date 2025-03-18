@@ -196,4 +196,10 @@ public class Main {
     }
 
     //Funcions d'administrador/gestor
+    public static void ingressosTotals()
+    {
+        int dies = controlErrosMenu("Quants dies estan els cotxes alquilats?", 1, 30);
+        double ingressos = GestorLloguers.calcularIngressosTotals(vAlquilats, dies);
+        System.out.println("Els ingressos totals actuals son: " + ingressos + "€");
+    }
 }
