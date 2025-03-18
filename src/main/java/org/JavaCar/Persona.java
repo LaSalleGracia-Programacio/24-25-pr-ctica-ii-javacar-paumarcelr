@@ -1,17 +1,17 @@
 package org.JavaCar;
 
 public abstract class Persona {
-    protected int dni;
+    protected String dni;
     protected String nom;
     protected String cognom;
 
-    public Persona(int id, String nom, String cognom) {
+    public Persona(String id, String nom, String cognom) {
         this.dni = id;
         this.nom = nom;
         this.cognom = cognom;
     }
 
-    public int getDni() {
+    public String getDni() {
         return dni;
     }
 

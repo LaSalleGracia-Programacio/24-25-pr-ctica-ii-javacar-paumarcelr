@@ -8,8 +8,8 @@ public class Client extends Persona {
     static Scanner input = new Scanner(System.in);
     private static List<Vehicle> vehiclesClient;
 
-    public Client(int id, String nom, String cognom) {
-        super(id, nom, cognom);
+    public Client(String dni, String nom, String cognom) {
+        super(dni, nom, cognom);
         this.vehiclesClient = new ArrayList<>();
     }
 
@@ -115,5 +115,9 @@ public class Client extends Persona {
                 ", nom='" + nom + '\'' +
                 ", cognom='" + cognom + '\'' +
                 '}';
+    }
+
+    public static Client comprovacioClient(List<Client> clients){
+
     }
 }

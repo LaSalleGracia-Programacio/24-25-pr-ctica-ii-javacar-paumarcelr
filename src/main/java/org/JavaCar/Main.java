@@ -8,9 +8,14 @@ public class Main {
     static Scanner input = new Scanner(System.in);
    static List<Vehicle> vehicles = new ArrayList<>();
     static List<Vehicle> vAlquilats = new ArrayList<>();
+    static List<Client> clients = new ArrayList<>();
+    static List<Administrador> administradors = new ArrayList<>();
+    static Client c;
+    static Administrador a;
 
     public static void main(String[] args) {
         creacioVehicles();
+        creacioPersones();
         adminOClient();
 
     }
@@ -35,6 +40,16 @@ public class Main {
         vehicles.add(new Moto("2141 ENP","Ducati","Monster",75,150,motorGasolina,rodesMoto));
     }
 
+    public static void creacioPersones(){
+        clients.add(new Client("12345678F","Marcel","Roquet"));
+        clients.add(new Client("98765432M","Pau","Sole"));
+        clients.add(new Client("12345678M","Cristina","Garcia"));
+
+        administradors.add(new Administrador("13254658F","Pablo","Perez",6));
+        administradors.add(new Administrador("23456789A","Gerard","Perez",2));
+        administradors.add(new Administrador("87654321E","Montse","Perez",10));
+
+    }
     //Menus
     public static void menuClient() {
         boolean sortir = false;
@@ -90,8 +105,6 @@ public class Main {
             }
         } while (!sortir);
     }
-
-
 
     public static void adminOClient() {
         boolean sortir = false;

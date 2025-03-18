@@ -5,8 +5,8 @@ import java.util.List;
 public class Administrador extends Persona{
     private int anysExperiencia;
 
-    public Administrador(int id, String nom, String cognom, int anysExperiencia) {
-        super(id, nom, cognom);
+    public Administrador(String dni, String nom, String cognom, int anysExperiencia) {
+        super(dni, nom, cognom);
         this.anysExperiencia = anysExperiencia;
     }
 
