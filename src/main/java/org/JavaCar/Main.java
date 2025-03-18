@@ -34,6 +34,8 @@ public class Main {
         vehicles.add(new Moto("3241 ENP","Yamaha","R7",80,525,motorDiesel,rodesMoto));
         vehicles.add(new Moto("2141 ENP","Ducati","Monster",75,150,motorGasolina,rodesMoto));
     }
+
+    //Menus
     public static void menuClient() {
         boolean sortir = false;
         do {
@@ -102,6 +104,8 @@ public class Main {
             }
         } while (!sortir);
     }
+
+    //Control d'errors
     private static int controlErrosMenu(String missatge, int min, int max) {
 
         int x = 0;
@@ -126,6 +130,8 @@ public class Main {
 
         return x;
     }
+
+    //Funcions d'usuari
     public static void alquilarVehicle(List<Vehicle> vehiclesDisp, List<Vehicle> vAlquilats) {
         String s = "p";
         boolean trobat = false;
@@ -189,4 +195,5 @@ public class Main {
         }
     }
 
+    //Funcions d'administrador/gestor
 }
