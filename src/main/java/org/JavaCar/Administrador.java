@@ -31,6 +31,18 @@ public class Administrador {
         }
     }
 
+    public static void veureHistorialVehicles()
+    {
+        List<InfoAlquiler> historial = GestioFitxers.llegirVehicles();
+
+        for (InfoAlquiler info : historial)
+        {
+            System.out.println(info.getVehicle().toString());
+            System.out.println(info.getDiesAlquilats());
+        }
+
+    }
+
     public static void comprovacioAdmin() {
         int intents = 0;
         while (intents < 3) {
