@@ -186,33 +186,26 @@ public class Client {
                 "\n 4- Sortir",1,4);
         switch (menu){
             case 1:
-                System.out.println("Aquí tens totes les motos disponibles. ");
-                for (int i = 0; i < vehicleList.size(); i++) {
-                    if (vehicleList.get(i) instanceof Moto){
-                        System.out.println(vehicleList.get(i).toString());
-                    }
-                }
+                mostrarPerTipus(vehicleList,Moto.class,"Aquí tens totes les motos disponibles. ");
                 break;
             case 2:
-                System.out.println("Aquí tens tots el cotxes disponibles. ");
-                for (int i = 0; i < vehicleList.size(); i++) {
-                    if (vehicleList.get(i) instanceof Cotxe){
-                        System.out.println(vehicleList.get(i).toString());
-                    }
-                }
+                mostrarPerTipus(vehicleList,Cotxe.class,"Aquí tens tots el cotxes disponibles:");
                 break;
             case 3:
-                System.out.println("Aquí tens totes les caravanes disponibles. ");
-                for (int i = 0; i < vehicleList.size(); i++) {
-                    if (vehicleList.get(i) instanceof Furgoneta){
-                        System.out.println(vehicleList.get(i).toString());
-                    }
-                }
+                mostrarPerTipus(vehicleList,Furgoneta.class,"Aqui tens totes les furgonetes disponibles: ");
                 break;
             case 4:
                 break;
         }
 
+    }
+    private void mostrarPerTipus(List<Vehicle> vehicleList, Class<?> tipus, String missatge) {
+        System.out.println(missatge);
+        for (int i = 0; i < vehicleList.size(); i++) {
+            if (tipus.isInstance(vehicleList.get(i))){
+                System.out.println(vehicleList.get(i).toString());
+            }
+        }
     }
 
 }
