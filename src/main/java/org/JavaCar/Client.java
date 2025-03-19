@@ -199,10 +199,18 @@ public class Client {
 
     }
     private void mostrarPerTipus(List<Vehicle> vehicleList, Class<?> tipus, String missatge) {
+        List<Vehicle> vehiclesTipus = new ArrayList<>();
         System.out.println(missatge);
         for (int i = 0; i < vehicleList.size(); i++) {
             if (tipus.isInstance(vehicleList.get(i))){
-                System.out.println(vehicleList.get(i).toString());
+                vehiclesTipus.add(vehicleList.get(i));
+            }
+        }
+        if (vehiclesTipus.isEmpty()){
+            System.out.println("En aquest moment no hi han disponibles");
+        } else {
+            for (int i = 0; i < vehiclesTipus.size(); i++) {
+                System.out.println(vehiclesTipus.get(i).toString());
             }
         }
     }
