@@ -72,6 +72,7 @@ public class Main {
                     break;
                 case 5:
                     c.tornarVehicle(vehicles,vAlquilats);
+                    break;
                 case 6:
                     sortir = true;
                     break;
@@ -163,5 +164,22 @@ public class Main {
             System.out.println(vehicles.get(i).toString());
         }
     }
+    public static String preguntarMatricula(String missatge){
+        System.out.print(missatge);
+        String matricula = input.nextLine();
+        return matricula;
+    }
+    public static int buscarVehicle(List<Vehicle> vehicleList, String matricula) {
+        int indice = -1;
 
+            // buscar el cotxe a la llista de vehicles alquilats   a partir de la matricula
+            for (int i = 0; i < vehicleList.size(); i++) {
+                // si coincideix calculem el preu a partir dels dies
+                if (matricula.equalsIgnoreCase(vehicleList.get(i).getMatricula())) {
+                    indice = i;
+                    break;
+                }
+            }
+            return indice;
+        }
 }

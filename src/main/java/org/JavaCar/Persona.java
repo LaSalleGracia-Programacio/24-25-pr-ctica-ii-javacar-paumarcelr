@@ -1,6 +1,6 @@
 package org.JavaCar;
 
-public abstract class Persona {
+/*public abstract class Persona {
     protected String dni;
     protected String nom;
     protected String cognom;
@@ -27,3 +27,4 @@ public abstract class Persona {
 
 
 }
+*/
