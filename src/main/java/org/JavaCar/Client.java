@@ -35,25 +35,16 @@ public class Client {
     }
 
     public void tornarVehicle(List<Vehicle> vehicles, List<Vehicle> vAlquilats) {
+        int indice;
         if (vehiclesClient.isEmpty()){
             System.out.println("No tens ningun vehicle alquilat");
         } else{
-            boolean trobat = false;
-            int indice = -1;
-            do {
-                System.out.print("Introdueix la matricula del vehicle que vols tornar: ");
-                String matricula = input.nextLine();
 
-                // buscar el cotxe a la llista de vehicles alquilats   a partir de la matricula
-                for (int i = 0; i < vehiclesClient.size() ; i++) {
-                    // si coincideix calculem el preu a partir dels dies
-                    if (matricula.equalsIgnoreCase(vehiclesClient.get(i).getMatricula())) {
-                        indice = i;
-                        trobat = true;
-                        break;
-                    }
-                }
-                if (trobat) {
+            do {
+                 indice = Main.buscarVehicle(vAlquilats);
+                 String matricula = Main.preguntarMatricula();
+
+                if (indice != -1) {
                     Vehicle vehicle = vehiclesClient.get(indice);
                     System.out.println("Vehicle tornat correctament :)");
                     vehicles.add(vehicle);
@@ -64,33 +55,24 @@ public class Client {
                 } else {
                     System.out.println("Matricula no trobada");
                 }
-            } while (!trobat);
+            } while (indice != -1);
 
         }
 
     }
     public  void alquilarVehicle(List<Vehicle> vehiclesDisp, List<Vehicle> vAlquilats) {
-        boolean trobat = false;
-        int indice = -1;
+        int indice;
         int dies = 0;
         System.out.println("Aquest són els vehicles que tens disponibles");
         Main.mostrarVehicles(vehiclesDisp);
 
         do {
 
-            System.out.print("Introdueix la matricula del vehicle que vols alquilar: ");
-            String matricula = input.nextLine();
+            String matricula = Main.preguntarMatricula();
 
             // buscar el cotxe a la llista de vehicles disponibles a partir de la matricula
-            for (int i = 0; i < vehiclesDisp.size(); i++) {
-                // si coincideix calculem el preu a partir dels dies
-                if (matricula.equals(vehiclesDisp.get(i).getMatricula())) {
-                    indice = i;
-                    trobat = true;
-                    break;
-                }
-            }
-            if (trobat) {
+            indice = Main.buscarVehicle(vehiclesDisp);
+            if (indice != -1) {
                 System.out.println("Quants dies el vols alquilar? ");
                 dies = input.nextInt();
                 input.nextLine();
@@ -113,7 +95,7 @@ public class Client {
                 System.out.println("Matricula no trobada");
             }
 
-        } while (!trobat) ;
+        } while ( indice != -1) ;
     }
 
 

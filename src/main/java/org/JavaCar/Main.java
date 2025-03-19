@@ -158,6 +158,27 @@ public class Main {
             System.out.println(vehicles.get(i).toString());
         }
     }
+    public static String preguntarMatricula(){
+        System.out.print("Introdueix la matricula del vehicle que vols alquilar: ");
+        String matricula = input.nextLine();
+        return matricula;
+    }
+    public static int buscarVehicle(List<Vehicle> vehicleList) {
+        int indice = -1;
+            String matricula = Main.preguntarMatricula();
+
+            // buscar el cotxe a la llista de vehicles alquilats   a partir de la matricula
+            for (int i = 0; i < vehicleList.size(); i++) {
+                // si coincideix calculem el preu a partir dels dies
+                if (matricula.equalsIgnoreCase(vehicleList.get(i).getMatricula())) {
+                    indice = i;
+                    break;
+                }
+            }
+            return indice;
+        }
+
+
 
     //Funcions d'administrador/gestor
 
@@ -169,6 +190,5 @@ public class Main {
             System.out.println(v.toString());
         }
     }
-
 //    public static void veureHistorialDeVehicles()
 }
