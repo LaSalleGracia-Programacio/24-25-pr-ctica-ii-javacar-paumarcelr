@@ -71,9 +71,10 @@ public class Client {
             // buscar el cotxe a la llista de vehicles disponibles a partir de la matricula
             indice = Main.buscarVehicle(vehiclesDisp,matricula);
             if (indice != -1) {
-                System.out.println("Quants dies el vols alquilar? ");
-                dies = input.nextInt();
+
+                dies = Main.controlErrorsInt("Quants dies el vols alquilar? ",1,30);
                 input.nextLine();
+
                 Vehicle vehicle = vehiclesDisp.get(indice);
                 // mostrem el preu del cotxe que ha dit. Userfrendly mostrant marca i model
                 double preu = vehicle.calcularPreu(dies);

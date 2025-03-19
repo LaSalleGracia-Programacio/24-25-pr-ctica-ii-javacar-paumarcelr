@@ -12,7 +12,7 @@ public class Administrador {
     }
 
     public static void ingressosTotals(List<Vehicle> vehicles) {
-        int dies = Main.controlErrosMenu("Quants dies estan els cotxes alquilats?", 1, 30);
+        int dies = Main.controlErrorsInt("Quants dies estan els cotxes alquilats?", 1, 30);
         double ingressos = GestorLloguers.calcularIngressosTotals(vehicles, dies);
         System.out.println("Els ingressos totals actuals son: " + ingressos + "€");
     }

@@ -49,7 +49,7 @@ public class Main {
         boolean sortir = false;
         do {
 
-            int menu = controlErrosMenu("Venvingut a javaCar " +c.getNom()+", les opcions del menú són: " +
+            int menu = controlErrorsInt("Venvingut a javaCar " +c.getNom()+", les opcions del menú són: " +
                     "\n 1- Alquilar vehicle" +
                     "\n 2- Veure vehicles disponibles" +
                     "\n 3- Filtrar vehicles" +
@@ -82,7 +82,7 @@ public class Main {
     public static void menuAdmin(){
         boolean sortir = false;
         do {
-            int menu = Main.controlErrosMenu("Que vols fer com Administrador a javCar" +
+            int menu = Main.controlErrorsInt("Que vols fer com Administrador a javCar" +
                     "\n 1- Veure ingresos totals" +
                     "\n 2- Veure vehicles Alquilats" +
                     "\n 3- Veure historial de vehicles alquilats de tots els usuaris" +
@@ -112,7 +112,7 @@ public class Main {
     public static void adminOClient() {
         boolean sortir = false;
         do {
-            int menu = controlErrosMenu("Que ets: " +
+            int menu = controlErrorsInt("Que ets: " +
                     "\n 1- Client " +
                     "\n 2- Administrador" +
                     "\n 3- Sortir", 1, 3);
@@ -133,7 +133,7 @@ public class Main {
     }
 
     //Control d'errors
-    static int controlErrosMenu(String missatge, int min, int max) {
+    static int controlErrorsInt(String missatge, int min, int max) {
 
         int x = 0;
         boolean valorCorrecte = false;
