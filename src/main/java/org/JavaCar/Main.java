@@ -94,6 +94,7 @@ public class Main {
                     Administrador.veureVehiclesAlquilats(clients);
                     break;
                 case 3:
+                    Administrador.veureHistorialVehicles();
                     break;
                 case 4:
                     sortir = true;
