@@ -85,7 +85,8 @@ public class Main {
                     "\n 1- Veure ingresos totals" +
                     "\n 2- Veure vehicles Alquilats" +
                     "\n 3- Veure historial de vehicles alquilats de tots els usuaris" +
-                    "\n 4- Sortir", 1, 4);
+                    "\n 4- Calcular ingressos de l'historial de vehicles alquilats de tots els usuaris" +
+                    "\n 5- Sortir", 1, 5);
             switch (menu) {
                 case 1:
                     Administrador.ingressosTotals(vAlquilats);
@@ -97,6 +98,9 @@ public class Main {
                     Administrador.veureHistorialVehicles();
                     break;
                 case 4:
+                    Administrador.calcularIngressosHistorial();
+                    break;
+                case 5:
                     sortir = true;
                     break;
 
