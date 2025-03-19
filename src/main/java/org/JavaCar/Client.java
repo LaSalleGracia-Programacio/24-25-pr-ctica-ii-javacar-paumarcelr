@@ -114,8 +114,12 @@ public class Client {
         System.out.println("Quin és el preu màxim que vols establir?");
         double preuMax = input.nextDouble();
         List<Vehicle> filtrada = GestorLloguers.filtrarPerPreu(vehicles,preuMax);
-        for (int i = 0; i < filtrada.size(); i++) {
-            System.out.println(filtrada.get(i).toString());
+        if (filtrada.isEmpty()){
+            System.out.println("No hi han vehicles disponibles per aquest preu");
+        } else {
+            for (int i = 0; i < filtrada.size(); i++) {
+                System.out.println(filtrada.get(i).toString());
+            }
         }
     }
     @Override
