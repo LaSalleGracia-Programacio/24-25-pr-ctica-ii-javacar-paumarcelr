@@ -52,10 +52,11 @@ public class Main {
             int menu = controlErrorsInt("Venvingut a javaCar " +c.getNom()+", les opcions del menú són: " +
                     "\n 1- Alquilar vehicle" +
                     "\n 2- Veure vehicles disponibles" +
-                    "\n 3- Filtrar vehicles" +
-                    "\n 4- Veure els meus vehicles"+
-                    "\n 5- Tornar vehicle alquilat"+
-                    "\n 6- Sortir", 1, 6);
+                    "\n 3- Filtrar vehicles per preu" +
+                    "\n 4- Filtrar vehicles per tipus"+
+                    "\n 5- Veure els meus vehicles"+
+                    "\n 6- Tornar vehicle alquilat"+
+                    "\n 7- Sortir", 1, 7);
 
             switch (menu) {
                 case 1:
@@ -68,12 +69,15 @@ public class Main {
                     c.filtrarVehicles(vehicles);
                     break;
                 case 4:
-                    c.veureVehiclesPropis();
+                    c.vehiclesPerTipus(vehicles);
                     break;
                 case 5:
-                    c.tornarVehicle(vehicles,vAlquilats);
+                    c.veureVehiclesPropis();
                     break;
                 case 6:
+                    c.tornarVehicle(vehicles,vAlquilats);
+                    break;
+                case 7:
                     sortir = true;
                     break;
             }

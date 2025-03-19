@@ -178,6 +178,41 @@ public class Client {
             }
         }
     }
+    public void vehiclesPerTipus(List<Vehicle> vehicleList) {
+        int menu = Main.controlErrorsInt("Quin tipus de vehicle vols veure ?"+
+                "\n 1- Motos"+
+                "\n 2- Cotxes"+
+                "\n 3- Caravanes"+
+                "\n 4- Sortir",1,4);
+        switch (menu){
+            case 1:
+                System.out.println("Aquí tens totes les motos disponibles. ");
+                for (int i = 0; i < vehicleList.size(); i++) {
+                    if (vehicleList.get(i) instanceof Moto){
+                        System.out.println(vehicleList.get(i).toString());
+                    }
+                }
+                break;
+            case 2:
+                System.out.println("Aquí tens tots el cotxes disponibles. ");
+                for (int i = 0; i < vehicleList.size(); i++) {
+                    if (vehicleList.get(i) instanceof Cotxe){
+                        System.out.println(vehicleList.get(i).toString());
+                    }
+                }
+                break;
+            case 3:
+                System.out.println("Aquí tens totes les caravanes disponibles. ");
+                for (int i = 0; i < vehicleList.size(); i++) {
+                    if (vehicleList.get(i) instanceof Furgoneta){
+                        System.out.println(vehicleList.get(i).toString());
+                    }
+                }
+                break;
+            case 4:
+                break;
+        }
 
+    }
 
 }
