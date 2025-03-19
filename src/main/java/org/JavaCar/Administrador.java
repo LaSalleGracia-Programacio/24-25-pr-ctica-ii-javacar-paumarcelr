@@ -17,6 +17,20 @@ public class Administrador {
         System.out.println("Els ingressos totals actuals son: " + ingressos + "€");
     }
 
+
+    public static void veureVehiclesAlquilats(List<Client> clients)
+    {
+        System.out.println("Els vehicles que actualment estan alquilats son:");
+        for (Client c : clients)
+        {
+            System.out.println("Vehicles alquilats per " + c.getNom() + " " + c.getCognom() + ": ");
+            for (Vehicle v : c.getVehiclesClient())
+            {
+                System.out.println(v.toString());
+            }
+        }
+    }
+
     public static void comprovacioAdmin() {
         int intents = 0;
         while (intents < 3) {

@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Main {
     static Scanner input = new Scanner(System.in);
-   static List<Vehicle> vehicles = new ArrayList<>();
+    static List<Vehicle> vehicles = new ArrayList<>();
     static List<Vehicle> vAlquilats = new ArrayList<>();
     static List<Client> clients = new ArrayList<>();
 
@@ -91,7 +91,7 @@ public class Main {
                     Administrador.ingressosTotals(vAlquilats);
                     break;
                 case 2:
-                    Main.veureVehiclesAlquilats();
+                    Administrador.veureVehiclesAlquilats(clients);
                     break;
                 case 3:
                     break;
@@ -159,16 +159,4 @@ public class Main {
         }
     }
 
-    //Funcions d'administrador/gestor
-
-    public static void veureVehiclesAlquilats()
-    {
-        System.out.println("Els vehicles que actualment estan alquilats son:");
-        for (Vehicle v : vAlquilats)
-        {
-            System.out.println(v.toString());
-        }
-    }
-
-//    public static void veureHistorialDeVehicles()
 }
