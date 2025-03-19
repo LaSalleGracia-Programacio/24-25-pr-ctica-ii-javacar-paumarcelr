@@ -17,7 +17,6 @@ public class Main {
         creacioVehicles();
         creacioPersones();
         adminOClient();
-
     }
     public static void creacioVehicles(){
         Motor motorGasolina = new Motor("Gasolina",123);
@@ -85,7 +84,7 @@ public class Main {
             int menu = Main.controlErrosMenu("Que vols fer com Administrador a javCar" +
                     "\n 1- Veure ingresos totals" +
                     "\n 2- Veure vehicles Alquilats" +
-                    "\n 3- Veure historial de vehicles" +
+                    "\n 3- Veure historial de vehicles alquilats de tots els usuaris" +
                     "\n 4- Sortir", 1, 4);
             switch (menu) {
                 case 1:
@@ -154,7 +153,6 @@ public class Main {
     }
 
     //Funcions d'usuari
-
     public static void mostrarVehicles(List<Vehicle> vehicles){
         for (int i = 0; i < vehicles.size(); i++) {
             System.out.println(vehicles.get(i).toString());
@@ -171,4 +169,6 @@ public class Main {
             System.out.println(v.toString());
         }
     }
+
+//    public static void veureHistorialDeVehicles()
 }

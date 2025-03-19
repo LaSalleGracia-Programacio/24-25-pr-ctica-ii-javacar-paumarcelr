@@ -1,8 +1,9 @@
 package org.JavaCar;
 
+import java.io.Serializable;
 import java.util.Arrays;
 
-public abstract class  Vehicle implements Llogable {
+public abstract class  Vehicle implements Llogable, Serializable {
     protected String matricula;
     protected String marca;
     protected String model;
