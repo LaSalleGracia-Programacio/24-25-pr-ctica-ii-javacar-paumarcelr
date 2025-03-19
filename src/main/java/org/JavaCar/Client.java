@@ -73,7 +73,6 @@ public class Client {
             if (indice != -1) {
 
                 dies = Main.controlErrorsInt("Quants dies el vols alquilar? ",1,30);
-                input.nextLine();
 
                 Vehicle vehicle = vehiclesDisp.get(indice);
                 // mostrem el preu del cotxe que ha dit. Userfrendly mostrant marca i model
@@ -206,6 +205,44 @@ public class Client {
                 System.out.println(vehicleList.get(i).toString());
             }
         }
+    }
+    public  void menuClient(List<Vehicle> vehicles,List<Vehicle> vAlquilats) {
+        boolean sortir = false;
+        do {
+
+            int menu = Main.controlErrorsInt("Venvingut a javaCar " + getNom()+", les opcions del menú són: " +
+                    "\n 1- Alquilar vehicle" +
+                    "\n 2- Veure vehicles disponibles" +
+                    "\n 3- Filtrar vehicles per preu" +
+                    "\n 4- Filtrar vehicles per tipus"+
+                    "\n 5- Veure els meus vehicles"+
+                    "\n 6- Tornar vehicle alquilat"+
+                    "\n 7- Sortir", 1, 7);
+
+            switch (menu) {
+                case 1:
+                    alquilarVehicle(vehicles,vAlquilats);
+                    break;
+                case 2:
+                    Main.mostrarVehicles(vehicles);
+                    break;
+                case 3:
+                    filtrarVehicles(vehicles);
+                    break;
+                case 4:
+                    vehiclesPerTipus(vehicles);
+                    break;
+                case 5:
+                    veureVehiclesPropis();
+                    break;
+                case 6:
+                    tornarVehicle(vehicles,vAlquilats);
+                    break;
+                case 7:
+                    sortir = true;
+                    break;
+            }
+        } while (!sortir);
     }
 
 }

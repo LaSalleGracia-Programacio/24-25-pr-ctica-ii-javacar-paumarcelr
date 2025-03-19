@@ -40,49 +40,11 @@ public class Main {
     }
 
     public static void creacioPersones(){
-        clients.add(new Client("12345678F","Marcel","Roquet"));
+        clients.add(new Client(".","Marcel","Roquet"));
         clients.add(new Client("98765432M","Pau","Sole"));
         clients.add(new Client("12345678M","Cristina","Garcia"));
     }
     //Menus
-    public static void menuClient() {
-        boolean sortir = false;
-        do {
-
-            int menu = controlErrorsInt("Venvingut a javaCar " +c.getNom()+", les opcions del menú són: " +
-                    "\n 1- Alquilar vehicle" +
-                    "\n 2- Veure vehicles disponibles" +
-                    "\n 3- Filtrar vehicles per preu" +
-                    "\n 4- Filtrar vehicles per tipus"+
-                    "\n 5- Veure els meus vehicles"+
-                    "\n 6- Tornar vehicle alquilat"+
-                    "\n 7- Sortir", 1, 7);
-
-            switch (menu) {
-                case 1:
-                    c.alquilarVehicle(vehicles,vAlquilats);
-                    break;
-                case 2:
-                    mostrarVehicles(vehicles);
-                    break;
-                case 3:
-                    c.filtrarVehicles(vehicles);
-                    break;
-                case 4:
-                    c.vehiclesPerTipus(vehicles);
-                    break;
-                case 5:
-                    c.veureVehiclesPropis();
-                    break;
-                case 6:
-                    c.tornarVehicle(vehicles,vAlquilats);
-                    break;
-                case 7:
-                    sortir = true;
-                    break;
-            }
-        } while (!sortir);
-    }
     public static void menuAdmin(){
         boolean sortir = false;
         do {
@@ -123,7 +85,7 @@ public class Main {
             switch (menu) {
                 case 1:
                     c = Client.comprovacioClient(clients);
-                    menuClient();
+                    c.menuClient(vehicles,vAlquilats);
                     break;
                 case 2:
                     Administrador.comprovacioAdmin();;
