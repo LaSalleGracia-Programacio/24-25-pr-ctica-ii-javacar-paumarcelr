@@ -35,14 +35,14 @@ public class Client {
     }
 
     public void tornarVehicle(List<Vehicle> vehicles, List<Vehicle> vAlquilats) {
-        int indice;
+        int indice = -1;
         if (vehiclesClient.isEmpty()){
             System.out.println("No tens ningun vehicle alquilat");
         } else{
 
             do {
-                 indice = Main.buscarVehicle(vAlquilats);
-                 String matricula = Main.preguntarMatricula();
+                String matricula = Main.preguntarMatricula("Introdueix la matricula del vehicle que vols tornar: ");
+                 indice = Main.buscarVehicle(vehiclesClient, matricula);
 
                 if (indice != -1) {
                     Vehicle vehicle = vehiclesClient.get(indice);
@@ -55,7 +55,7 @@ public class Client {
                 } else {
                     System.out.println("Matricula no trobada");
                 }
-            } while (indice != -1);
+            } while (indice == -1);
 
         }
 
@@ -67,11 +67,9 @@ public class Client {
         Main.mostrarVehicles(vehiclesDisp);
 
         do {
-
-            String matricula = Main.preguntarMatricula();
-
+            String matricula = Main.preguntarMatricula("Introdueix la matricula del vehicle que vols alquilar: ");
             // buscar el cotxe a la llista de vehicles disponibles a partir de la matricula
-            indice = Main.buscarVehicle(vehiclesDisp);
+            indice = Main.buscarVehicle(vehiclesDisp,matricula);
             if (indice != -1) {
                 System.out.println("Quants dies el vols alquilar? ");
                 dies = input.nextInt();
@@ -95,7 +93,7 @@ public class Client {
                 System.out.println("Matricula no trobada");
             }
 
-        } while ( indice != -1) ;
+        } while ( indice == -1) ;
     }
 
 
@@ -164,7 +162,7 @@ public class Client {
             System.out.println("Encara no tens vehicles alquilats.");
         } else {
             if (vehiclesClient.size() >= 3){
-                System.out.println("Wow "+getNom()+" ! Tens"+vehiclesClient.size()+" alquilats.");
+                System.out.println("Wow "+getNom()+" ! Tens "+vehiclesClient.size()+"  vehicles alquilats.");
                 System.out.println("Aqui tens la informació dels vehicles: ");
             } else {
                 System.out.println("Aquest son els teus vehicles: ");
