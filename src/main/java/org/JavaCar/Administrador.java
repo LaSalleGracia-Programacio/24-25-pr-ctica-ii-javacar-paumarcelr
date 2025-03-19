@@ -43,6 +43,20 @@ public class Administrador {
 
     }
 
+    public static void calcularIngressosHistorial()
+    {
+        List<InfoAlquiler> historial = GestioFitxers.llegirVehicles();
+        double ingressosTotals = 0;
+        for (InfoAlquiler info : historial)
+        {
+            System.out.println(info.getVehicle().toString());
+            System.out.println(info.getDiesAlquilats());
+            ingressosTotals += info.getVehicle().getPreuBase() * info.getDiesAlquilats();
+        }
+
+        System.out.println("Els ingressos totals generats son de " + ingressosTotals + "€");
+    }
+
     public static void comprovacioAdmin() {
         int intents = 0;
         while (intents < 3) {
