@@ -182,7 +182,7 @@ public class Client {
         int menu = Main.controlErrorsInt("Quin tipus de vehicle vols veure ?"+
                 "\n 1- Motos"+
                 "\n 2- Cotxes"+
-                "\n 3- Caravanes"+
+                "\n 3- Furgonetes"+
                 "\n 4- Sortir",1,4);
         switch (menu){
             case 1:

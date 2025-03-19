@@ -1,5 +1,6 @@
 package org.JavaCar;
 
+import java.util.Arrays;
 public class Cotxe extends Vehicle{
     private int nombrePlaces;
     public Cotxe(String matricula, String marca, String model, double preuBase, int nombrePlaces, Motor motor, Roda[] rodes) {
@@ -13,7 +14,34 @@ public class Cotxe extends Vehicle{
 
     @Override
     public String toString() {
-        return super.toString();
-    }
+        if (autonomiaElectirc == 0) {
+            return "Cotxe{" +
+                    ", matricula='" + matricula + '\'' +
+                    ", marca='" + marca + '\'' +
+                    ", model='" + model + '\'' +
+                    ", preuBase=" + preuBase +
+                    ", motor=" + motor +
+                    ", nombrePlaces=" + nombrePlaces +
+                    ", rodes=" + Arrays.toString(rodes) +
+                    ", enchufable=" + enchufable +
+                    ", anyMatriculacio=" + anyMatriculacio +
+                    ", etiqueta=" + etiqueta +
+                    '}';
+        } else {
+            return "Cotxe{" +
+                    ", matricula='" + matricula + '\'' +
+                    ", marca='" + marca + '\'' +
+                    ", model='" + model + '\'' +
+                    ", preuBase=" + preuBase +
+                    ", motor=" + motor +
+                    ", nombrePlaces=" + nombrePlaces +
+                    ", rodes=" + Arrays.toString(rodes) +
+                    ", enchufable=" + enchufable +
+                    ", autonomiaElectirc=" + autonomiaElectirc +
+                    ", anyMatriculacio=" + anyMatriculacio +
+                    ", etiqueta=" + etiqueta +
+                    '}';
 
+        }
+    }
 }

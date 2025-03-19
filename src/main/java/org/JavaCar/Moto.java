@@ -1,5 +1,7 @@
 package org.JavaCar;
 
+import java.util.Arrays;
+
 public class Moto extends Vehicle {
     private int cilindrada;
 
@@ -23,6 +25,34 @@ public class Moto extends Vehicle {
 
     @Override
     public String toString() {
-        return super.toString();
+        if (autonomiaElectirc == 0) {
+            return "Moto{" +
+                    ", matricula='" + matricula + '\'' +
+                    ", marca='" + marca + '\'' +
+                    ", model='" + model + '\'' +
+                    ", preuBase=" + preuBase +
+                    ", cilindrada=" + cilindrada +
+                    ", motor=" + motor +
+                    ", rodes=" + Arrays.toString(rodes) +
+                    ", enchufable=" + enchufable +
+                    ", anyMatriculacio=" + anyMatriculacio +
+                    ", etiqueta=" + etiqueta +
+                    '}';
+        } else {
+            return "Moto{" +
+                    ", matricula='" + matricula + '\'' +
+                    ", marca='" + marca + '\'' +
+                    ", model='" + model + '\'' +
+                    ", preuBase=" + preuBase +
+                    ", cilindrada=" + cilindrada +
+                    ", motor=" + motor +
+                    ", rodes=" + Arrays.toString(rodes) +
+                    ", enchufable=" + enchufable +
+                    ", autonomiaElectirc=" + autonomiaElectirc +
+                    ", anyMatriculacio=" + anyMatriculacio +
+                    ", etiqueta=" + etiqueta +
+                    '}';
+
+        }
     }
 }
