@@ -117,10 +117,7 @@ public class Client implements Serializable {
             } else {
                 System.out.println("Aquest son els teus vehicles: ");
             }
-
-            for (int i = 0; i < vehiclesClient.size(); i++) {
-                System.out.println(vehiclesClient.get(i).toString());
-            }
+            mostrarVehicles(vehiclesClient);
         }
     }
 
@@ -169,13 +166,8 @@ public class Client implements Serializable {
         double preuMax = input.nextDouble();
 
         List<Vehicle> filtrada = GestorLloguers.filtrarPerPreu(vehicles, preuMax);
-        if (filtrada.isEmpty()) {
-            System.out.println("No hi han vehicles disponibles per aquest preu");
-        } else {
-            for (int i = 0; i < filtrada.size(); i++) {
-                System.out.println(filtrada.get(i).toString());
-            }
-        }
+        mostrarLlistaVehicleSiNoEstaVuida(filtrada);
+
     }
 
     public static Client comprovacioClient(List<Client> clients) {
@@ -239,18 +231,14 @@ public class Client implements Serializable {
             }
         }
         //Si hi ha vehicles disponibles, els mostrem
-        if (vehiclesTipus.isEmpty()) {
-            System.out.println("En aquest moment no hi han disponibles");
-        } else {
-            for (int i = 0; i < vehiclesTipus.size(); i++) {
-                System.out.println(vehiclesTipus.get(i).toString());
-            }
-        }
+       mostrarLlistaVehicleSiNoEstaVuida(vehiclesTipus);
     }
 
     private void mostrarVehicles(List<Vehicle> vehicles) {
         for (int i = 0; i < vehicles.size(); i++) {
+            System.out.println("--------------");
             System.out.println(vehicles.get(i).toString());
+            System.out.println("--------------");
         }
     }
 
@@ -271,6 +259,15 @@ public class Client implements Serializable {
             }
         }
         return indice;
+    }
+
+    private void mostrarLlistaVehicleSiNoEstaVuida(List<Vehicle> vehicles)
+    {
+        if (vehicles.isEmpty()) {
+            System.out.println("En aquest moment no hi han disponibles");
+        } else {
+            mostrarVehicles(vehicles);
+        }
     }
 
     @Override
