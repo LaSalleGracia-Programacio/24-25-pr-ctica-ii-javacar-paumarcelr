@@ -4,8 +4,6 @@ import java.util.List;
 import java.util.Scanner;
 
 public class GestorLloguers {
-    static Scanner input = new Scanner(System.in);
-
     static public double calcularIngressosTotals(List<Vehicle> vehicles, int dies) {
 
         double preutotal = 0;
