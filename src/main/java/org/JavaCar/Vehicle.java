@@ -114,35 +114,4 @@ public abstract class  Vehicle implements Llogable, Serializable {
         }
         return etiqueta;
     }
-
-    @Override
-    public String toString() {
-        if (autonomiaElectirc == 0) {
-            return "Vehicle{" +
-                    "matricula='" + matricula + '\'' +
-                    ", marca='" + marca + '\'' +
-                    ", model='" + model + '\'' +
-                    ", preuBase=" + preuBase +
-                    ", motor=" + motor +
-                    ", rodes=" + Arrays.toString(rodes) +
-                    ", enchufable=" + enchufable +
-                    ", anyMatriculacio=" + anyMatriculacio +
-                    ", etiqueta=" + etiqueta.toString() +
-                    '}';
-        } else {
-
-            return "Vehicle{" +
-                    "matricula='" + matricula + '\'' +
-                    ", marca='" + marca + '\'' +
-                    ", model='" + model + '\'' +
-                    ", preuBase=" + preuBase +
-                    ", motor=" + motor +
-                    ", rodes=" + Arrays.toString(rodes) +
-                    ", enchufable=" + enchufable +
-                    ", autonomiaElectirc=" + autonomiaElectirc +
-                    ", anyMatriculacio=" + anyMatriculacio +
-                    ", etiqueta=" + etiqueta.toString()+
-                    '}';
-        }
-    }
 }

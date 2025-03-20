@@ -26,14 +26,14 @@ public class Furgoneta extends Vehicle{
 
     @Override
     public String toString() {
-        String furgonetaInfo = "Marca: " + marca + "\n" +
+        String furgonetaInfo = "Marca: " + marca + " | " +
                 "Model: " + model + "\n" +
-                "Matricula: " + matricula + "\n" +
-                "Preu/dia: " + preuBase + "\n" +
+                "Matricula: " + matricula + " | " +
+                "Any de matriculació: " + anyMatriculacio + "\n" +
+                "Preu/dia: " + preuBase + " | " +
                 "Capacitat de carga: " + capacitatCarga + "\n" +
-                "Tipus de motor: " + motor.getTipus() + "\n" +
-                "Marca de roda: " + rodes[0].getMarca() + "\n" +
-                "Any de matriculació: " + anyMatriculacio + "\n";
+                "Tipus de motor: " + motor.getTipus() + " | " +
+                "Marca de roda: " + rodes[0].getMarca() + "\n";
 
         if (enchufable)
         {

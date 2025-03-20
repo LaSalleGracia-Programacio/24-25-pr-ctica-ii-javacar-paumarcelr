@@ -25,14 +25,14 @@ public class Moto extends Vehicle {
 
     @Override
     public String toString() {
-        String motoInfo = "Marca: " + marca + "\n" +
+        String motoInfo = "Marca: " + marca + " | " +
                 "Model: " + model + "\n" +
-                "Matricula: " + matricula + "\n" +
-                "Preu/dia: " + preuBase + "\n" +
+                "Matricula: " + matricula + " | " +
+                "Any de matriculació: " + anyMatriculacio + "\n" +
+                "Preu/dia: " + preuBase + " | " +
                 "Cilindrada: " + cilindrada + "\n" +
-                "Tipus de motor: " + motor.getTipus() + "\n" +
-                "Marca de roda: " + rodes[0].getMarca() + "\n" +
-                "Any de matriculació: " + anyMatriculacio + "\n";
+                "Tipus de motor: " + motor.getTipus() + " | " +
+                "Marca de roda: " + rodes[0].getMarca() + "\n";
 
         if (enchufable)
         {

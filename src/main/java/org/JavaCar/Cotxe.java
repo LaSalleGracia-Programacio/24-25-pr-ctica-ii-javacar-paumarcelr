@@ -14,14 +14,14 @@ public class Cotxe extends Vehicle{
 
     @Override
     public String toString() {
-        String cotxeInfo = "Marca: " + marca + "\n" +
+        String cotxeInfo = "Marca: " + marca + " | " +
                 "Model: " + model + "\n" +
-                "Matricula: " + matricula + "\n" +
-                "Preu/dia: " + preuBase + "\n" +
+                "Matricula: " + matricula + " | " +
+                "Any de matriculació: " + anyMatriculacio + "\n" +
+                "Preu/dia: " + preuBase + " | " +
                 "Numero de places: " + nombrePlaces + "\n" +
-                "Tipus de motor: " + motor.getTipus() + "\n" +
-                "Marca de roda: " + rodes[0].getMarca() + "\n" +
-                "Any de matriculació: " + anyMatriculacio + "\n";
+                "Tipus de motor: " + motor.getTipus() + " | " +
+                "Marca de roda: " + rodes[0].getMarca() + "\n";
 
         if (enchufable)
         {
