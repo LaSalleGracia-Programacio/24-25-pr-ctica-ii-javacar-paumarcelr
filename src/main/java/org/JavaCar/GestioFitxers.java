@@ -6,7 +6,7 @@ import java.util.*;
 public class GestioFitxers {
 
     static String nomFitxer = "vehicles.dat";
-    public static void escriureVehicle(Vehicle v, int dies) {
+    public static void escriureVehicle(Vehicle vehicle, int dies, Client client) {
         File file = new File(nomFitxer);
         boolean append = file.exists();
 
@@ -14,7 +14,7 @@ public class GestioFitxers {
              ObjectOutputStream oos = append
                      ? new AfegirFinalFitxer(fos)
                      : new ObjectOutputStream(fos)) {
-            InfoAlquiler info = new InfoAlquiler(v, dies);
+            InfoAlquiler info = new InfoAlquiler(vehicle, dies, client);
             oos.writeObject(info);
         } catch (IOException e) {
             e.printStackTrace();
