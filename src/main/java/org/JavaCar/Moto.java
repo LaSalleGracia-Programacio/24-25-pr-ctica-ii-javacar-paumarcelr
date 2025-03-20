@@ -25,34 +25,26 @@ public class Moto extends Vehicle {
 
     @Override
     public String toString() {
-        if (autonomiaElectirc == 0) {
-            return "Moto{" +
-                    ", matricula='" + matricula + '\'' +
-                    ", marca='" + marca + '\'' +
-                    ", model='" + model + '\'' +
-                    ", preuBase=" + preuBase +
-                    ", cilindrada=" + cilindrada +
-                    ", motor=" + motor +
-                    ", rodes=" + Arrays.toString(rodes) +
-                    ", enchufable=" + enchufable +
-                    ", anyMatriculacio=" + anyMatriculacio +
-                    ", etiqueta=" + etiqueta +
-                    '}';
-        } else {
-            return "Moto{" +
-                    ", matricula='" + matricula + '\'' +
-                    ", marca='" + marca + '\'' +
-                    ", model='" + model + '\'' +
-                    ", preuBase=" + preuBase +
-                    ", cilindrada=" + cilindrada +
-                    ", motor=" + motor +
-                    ", rodes=" + Arrays.toString(rodes) +
-                    ", enchufable=" + enchufable +
-                    ", autonomiaElectirc=" + autonomiaElectirc +
-                    ", anyMatriculacio=" + anyMatriculacio +
-                    ", etiqueta=" + etiqueta +
-                    '}';
+        String motoInfo = "Marca: " + marca + "\n" +
+                "Model: " + model + "\n" +
+                "Matricula: " + matricula + "\n" +
+                "Preu/dia: " + preuBase + "\n" +
+                "Cilindrada: " + cilindrada + "\n" +
+                "Tipus de motor: " + motor.getTipus() + "\n" +
+                "Marca de roda: " + rodes[0].getMarca() + "\n" +
+                "Any de matriculació: " + anyMatriculacio + "\n";
 
+        if (enchufable)
+        {
+            motoInfo += "És enchufable \n";
         }
+
+        if (autonomiaElectirc != 0)
+        {
+            motoInfo += "Velocitat en autonomia electrica: " + autonomiaElectirc  +"\n";
+        }
+
+        motoInfo += "Eriqueta ambiental: " + etiqueta.toString();
+        return  motoInfo;
     }
 }
