@@ -30,13 +30,25 @@ public class Main {
 
         vehicles.add(new Cotxe("1234 MMM","Toyota","Corola",70,5,motorGasolina,rodes1));
         vehicles.add(new Cotxe("2222 FFF","Seat","Leon",50,5,motorHibrid,rodes1));
+        vehicles.get(1).setAnyMatriculacio(2013);
+        vehicles.get(1).setEnchufable(true);
+        vehicles.get(1).setAutonomiaElectirc(30);
+
         vehicles.add(new Cotxe("3421 FFF","Tesla","S",80,5,motorElectric,rodes1));
+        vehicles.get(2).setAnyMatriculacio(2022);
+        vehicles.get(2).setEnchufable(true);
+        vehicles.get(2).setAutonomiaElectirc(200);
 
         vehicles.add(new Furgoneta("5555 LPQ","Ford","Transit",80,1250,motorGasolina,rodes2));
         vehicles.add(new Furgoneta("5465 SSH","Nissan","Interstar",65,665,motorGasolina,rodes2));
+        vehicles.get(3).setAnyMatriculacio(1999);
+        vehicles.get(4).setAnyMatriculacio(2008);
 
         vehicles.add(new Moto("3241 ENP","Yamaha","R7",80,525,motorDiesel,rodesMoto));
         vehicles.add(new Moto("2141 ENP","Ducati","Monster",75,150,motorGasolina,rodesMoto));
+        vehicles.get(5).setAnyMatriculacio(2002);
+        vehicles.get(6).setAnyMatriculacio(2014);
+
     }
 
     public static void creacioPersones(){
