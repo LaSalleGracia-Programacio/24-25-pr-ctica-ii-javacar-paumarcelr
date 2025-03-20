@@ -35,6 +35,7 @@ public class Client {
     }
 
     public void tornarVehicle(List<Vehicle> vehicles, List<Vehicle> vAlquilats) {
+        veureVehiclesPropis();
         int indice = -1;
         if (vehiclesClient.isEmpty()){
             System.out.println("No tens ningun vehicle alquilat");
