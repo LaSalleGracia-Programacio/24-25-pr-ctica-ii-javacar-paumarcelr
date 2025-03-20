@@ -23,6 +23,7 @@ public class GestioFitxers {
             {
                 escritorFitxer = new ObjectOutputStream(fitxer);
             }
+            //Posem la informacio a escriure en el fitxer
             InfoAlquiler info = new InfoAlquiler(vehicle, dies, client);
             escritorFitxer.writeObject(info);
         } catch (IOException e) {
@@ -33,7 +34,9 @@ public class GestioFitxers {
     public static List<InfoAlquiler> llegirVehicles() {
         List<InfoAlquiler> infoList = new ArrayList<>();
         try {
+            //Obrim un lector de fitxer
             ObjectInputStream lectorFitxer = new ObjectInputStream(new FileInputStream(nomFitxer));
+            //Mentres hi hagi linies en el fitxer, anem llegint
             while (true) {
                 try {
                     InfoAlquiler info = (InfoAlquiler) lectorFitxer.readObject();
