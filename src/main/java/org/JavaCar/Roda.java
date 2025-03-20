@@ -16,16 +16,8 @@ public class Roda implements Serializable {
         return marca;
     }
 
-    public void setMarca(String marca) {
-        this.marca = marca;
-    }
-
     public double getDiametre() {
         return diametre;
-    }
-
-    public void setDiametre(double diametre) {
-        this.diametre = diametre;
     }
 
     @Override
