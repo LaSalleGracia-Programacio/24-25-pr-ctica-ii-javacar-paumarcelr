@@ -4,11 +4,13 @@ import java.io.Serializable;
 
 public class InfoAlquiler implements Serializable {
     private Vehicle vehicle;
+    private Client client;
     private int diesAlquilats;
 
-    public InfoAlquiler(Vehicle vehicle, int diesAlquilats) {
+    public InfoAlquiler(Vehicle vehicle, int diesAlquilats, Client client) {
         this.vehicle = vehicle;
         this.diesAlquilats = diesAlquilats;
+        this.client = client;
     }
 
     public Vehicle getVehicle() {
@@ -18,4 +20,6 @@ public class InfoAlquiler implements Serializable {
     public int getDiesAlquilats() {
         return diesAlquilats;
     }
+
+    public Client getClient() { return client; }
 }
