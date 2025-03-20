@@ -8,6 +8,10 @@ public class Moto extends Vehicle {
     public Moto(String matricula, String marca, String model, double preuBase, int cilindrada, Motor motor, Roda[] rodes) {
         super(matricula, marca, model, preuBase, motor, rodes);
         this.cilindrada = cilindrada;
+
+        if (cilindrada >500) {
+            this.preuBase += 5;
+        }
     }
     public int getCilindrada() {
         return cilindrada;
@@ -15,12 +19,7 @@ public class Moto extends Vehicle {
 
     @Override
     public double calcularPreu(int dies) {
-        if (cilindrada >500)
-        {
-            return (preuBase + 5) * dies;
-        } else {
-            return super.calcularPreu(dies);
-        }
+        return super.calcularPreu(dies);
     }
 
     @Override
