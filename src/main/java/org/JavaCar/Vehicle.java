@@ -26,7 +26,7 @@ public abstract class  Vehicle implements Llogable, Serializable {
         this.rodes = rodes;
 
         enchufable = false;
-        autonomiaElectirc = 160;
+        autonomiaElectirc = 0;
         anyMatriculacio = 1995;
         setEtiqueta();
     }
