@@ -45,35 +45,7 @@ public class Main {
         clients.add(new Client("12345678M","Cristina","Garcia"));
     }
     //Menus
-    public static void menuAdmin(){
-        boolean sortir = false;
-        do {
-            int menu = Main.controlErrorsInt("Que vols fer com Administrador a javCar" +
-                    "\n 1- Veure ingresos totals" +
-                    "\n 2- Veure vehicles Alquilats" +
-                    "\n 3- Veure historial de vehicles alquilats de tots els usuaris" +
-                    "\n 4- Calcular ingressos de l'historial de vehicles alquilats de tots els usuaris" +
-                    "\n 5- Sortir", 1, 5);
-            switch (menu) {
-                case 1:
-                    Administrador.ingressosTotals(vAlquilats);
-                    break;
-                case 2:
-                    Administrador.veureVehiclesAlquilats(clients);
-                    break;
-                case 3:
-                    Administrador.veureHistorialVehicles();
-                    break;
-                case 4:
-                    Administrador.calcularIngressosHistorial();
-                    break;
-                case 5:
-                    sortir = true;
-                    break;
 
-            }
-        } while (!sortir);
-    }
 
     public static void adminOClient() {
         boolean sortir = false;
@@ -88,7 +60,12 @@ public class Main {
                     c.menuClient(vehicles,vAlquilats);
                     break;
                 case 2:
-                    Administrador.comprovacioAdmin();;
+                    if (Administrador.comprovacioAdmin())
+                    {
+                        Administrador.menuAdmin(vAlquilats, clients);
+                    } else {
+                        System.out.println("Mira la contrasenya i tonra-ho a intentar");
+                    }
                     break;
                 case 3:
                     sortir = true;

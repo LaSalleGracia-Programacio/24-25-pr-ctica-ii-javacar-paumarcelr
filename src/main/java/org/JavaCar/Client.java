@@ -81,12 +81,14 @@ public class Client {
                 System.out.println("El preu final del " + vehicle.getMarca() + " " + vehicle.getModel() + " és de :" + preu + "€");
                 // si confirma li mostrem missatge de confirmació, eliminem el cotxe de la llista de desponibles i l'agrfim a la llista d'alquilats
 
-
                 generarFactura(vehicle, dies);
                 vAlquilats.add(vehicle);
                 vehiclesClient.add(vehicle);
                 vehiclesDisp.remove(indice);
+
+                //Escriure el vehicle alquilat al fitxer d'historial
                 GestioFitxers.escriureVehicle(vehicle, dies, this);
+
                 System.out.println("Vehicle alquilat correctament :)");
 
 
@@ -215,7 +217,7 @@ public class Client {
             }
         }
     }
-    public  void menuClient(List<Vehicle> vehicles,List<Vehicle> vAlquilats) {
+    public void menuClient(List<Vehicle> vehicles,List<Vehicle> vAlquilats) {
         boolean sortir = false;
         do {
 
