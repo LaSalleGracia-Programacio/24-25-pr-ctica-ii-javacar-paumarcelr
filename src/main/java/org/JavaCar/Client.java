@@ -9,7 +9,7 @@ public class Client {
     private String dni;
     private String nom;
     private String cognom;
-    private  List<Vehicle> vehiclesClient;
+    private List<Vehicle> vehiclesClient;
 
     public Client(String dni, String nom, String cognom) {
         this.dni = dni;
@@ -86,7 +86,7 @@ public class Client {
                 vAlquilats.add(vehicle);
                 vehiclesClient.add(vehicle);
                 vehiclesDisp.remove(indice);
-
+                GestioFitxers.escriureVehicle(vehicle, dies, this);
                 System.out.println("Vehicle alquilat correctament :)");
 
 
