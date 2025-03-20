@@ -197,7 +197,7 @@ public class Client implements Serializable {
                     }
                 }
             }
-            
+
             if (index != -1) {
                 return clients.get(index);
             } else {

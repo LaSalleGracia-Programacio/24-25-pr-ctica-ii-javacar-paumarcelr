@@ -14,34 +14,25 @@ public class Cotxe extends Vehicle{
 
     @Override
     public String toString() {
-        if (autonomiaElectirc == 0) {
-            return "Cotxe{" +
-                    ", matricula='" + matricula + '\'' +
-                    ", marca='" + marca + '\'' +
-                    ", model='" + model + '\'' +
-                    ", preuBase=" + preuBase +
-                    ", motor=" + motor +
-                    ", nombrePlaces=" + nombrePlaces +
-                    ", rodes=" + Arrays.toString(rodes) +
-                    ", enchufable=" + enchufable +
-                    ", anyMatriculacio=" + anyMatriculacio +
-                    ", etiqueta=" + etiqueta +
-                    '}';
-        } else {
-            return "Cotxe{" +
-                    ", matricula='" + matricula + '\'' +
-                    ", marca='" + marca + '\'' +
-                    ", model='" + model + '\'' +
-                    ", preuBase=" + preuBase +
-                    ", motor=" + motor +
-                    ", nombrePlaces=" + nombrePlaces +
-                    ", rodes=" + Arrays.toString(rodes) +
-                    ", enchufable=" + enchufable +
-                    ", autonomiaElectirc=" + autonomiaElectirc +
-                    ", anyMatriculacio=" + anyMatriculacio +
-                    ", etiqueta=" + etiqueta +
-                    '}';
+        String cotxeInfo = "Marca: " + marca + "\n" +
+                "Model: " + model + "\n" +
+                "Matricula: " + matricula + "\n" +
+                "Preu/dia: " + preuBase + "\n" +
+                "Tipus de motor: " + motor.getTipus() + "\n" +
+                "Marca de roda: " + rodes[0].getMarca() + "\n" +
+                "Any de matriculació: " + anyMatriculacio + "\n";
 
+        if (enchufable)
+        {
+            cotxeInfo += "És enchufable \n";
         }
+
+        if (autonomiaElectirc != 0)
+        {
+            cotxeInfo += "Velocitat en autonomia electrica: " + autonomiaElectirc  +"\n";
+        }
+
+        cotxeInfo += "Eriqueta ambiental: " + etiqueta.toString();
+        return  cotxeInfo;
     }
 }
