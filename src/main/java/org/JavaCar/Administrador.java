@@ -21,12 +21,12 @@ public class Administrador {
     public static void veureVehiclesAlquilats(List<Client> clients)
     {
         System.out.println("Els vehicles que actualment estan alquilats son:");
-        for (Client c : clients)
+        for (Client client : clients)
         {
-            System.out.println("Vehicles alquilats per " + c.getNom() + " " + c.getCognom() + ": ");
-            for (Vehicle v : c.getVehiclesClient())
+            System.out.println("Vehicles alquilats per " + client.getNom() + " " + client.getCognom() + ": ");
+            for (Vehicle vehicle : client.getVehiclesClient())
             {
-                System.out.println(v.toString());
+                System.out.println(vehicle.toString());
             }
         }
     }
@@ -37,9 +37,11 @@ public class Administrador {
 
         for (InfoAlquiler info : historial)
         {
+            System.out.println("===========INFO==========");
+            System.out.println("Client: " + info.getClient().getNom());
             System.out.println(info.getVehicle().toString());
             System.out.println(info.getDiesAlquilats());
-            System.out.println(info.getClient().getNom());
+            System.out.println("=========================");
         }
     }
 
@@ -49,8 +51,6 @@ public class Administrador {
         double ingressosTotals = 0;
         for (InfoAlquiler info : historial)
         {
-            System.out.println(info.getVehicle().toString());
-            System.out.println(info.getDiesAlquilats());
             ingressosTotals += info.getVehicle().getPreuBase() * info.getDiesAlquilats();
         }
 
