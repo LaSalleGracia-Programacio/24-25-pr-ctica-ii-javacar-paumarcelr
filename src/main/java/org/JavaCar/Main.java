@@ -103,29 +103,4 @@ public class Main {
 
         return x;
     }
-
-    //Funcions d'usuari
-    public static void mostrarVehicles(List<Vehicle> vehicles){
-        for (int i = 0; i < vehicles.size(); i++) {
-            System.out.println(vehicles.get(i).toString());
-        }
-    }
-    public static String preguntarMatricula(String missatge){
-        System.out.print(missatge);
-        String matricula = input.nextLine();
-        return matricula;
-    }
-    public static int buscarVehicle(List<Vehicle> vehicleList, String matricula) {
-        int indice = -1;
-
-            // buscar el cotxe a la llista de vehicles alquilats   a partir de la matricula
-            for (int i = 0; i < vehicleList.size(); i++) {
-                // si coincideix calculem el preu a partir dels dies
-                if (matricula.equalsIgnoreCase(vehicleList.get(i).getMatricula())) {
-                    indice = i;
-                    break;
-                }
-            }
-            return indice;
-        }
 }

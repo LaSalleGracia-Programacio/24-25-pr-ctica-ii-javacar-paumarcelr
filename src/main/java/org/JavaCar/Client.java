@@ -35,43 +35,55 @@ public class Client implements Serializable {
         return this.vehiclesClient;
     }
 
-    public void tornarVehicle(List<Vehicle> vehicles, List<Vehicle> vAlquilats) {
-        veureVehiclesPropis();
-        int indice = -1;
-        if (vehiclesClient.isEmpty()){
-            System.out.println("No tens ningun vehicle alquilat");
-        } else{
+    public void menuClient(List<Vehicle> vehicles,List<Vehicle> vAlquilats) {
+        boolean sortir = false;
+        do {
 
-            do {
-                String matricula = Main.preguntarMatricula("Introdueix la matricula del vehicle que vols tornar: ");
-                 indice = Main.buscarVehicle(vehiclesClient, matricula);
+            int menu = Main.controlErrorsInt("Venvingut a javaCar " + getNom()+", les opcions del menú són: " +
+                    "\n 1- Alquilar vehicle" +
+                    "\n 2- Veure vehicles disponibles" +
+                    "\n 3- Filtrar vehicles per preu" +
+                    "\n 4- Filtrar vehicles per tipus"+
+                    "\n 5- Veure els meus vehicles"+
+                    "\n 6- Tornar vehicle alquilat"+
+                    "\n 7- Sortir", 1, 7);
 
-                if (indice != -1) {
-                    Vehicle vehicle = vehiclesClient.get(indice);
-                    System.out.println("Vehicle tornat correctament :)");
-                    vehicles.add(vehicle);
-                    vAlquilats.remove(vehicle);
-                    vehiclesClient.remove(vehicle);
-
-
-                } else {
-                    System.out.println("Matricula no trobada");
-                }
-            } while (indice == -1);
-
-        }
-
+            switch (menu) {
+                case 1:
+                    alquilarVehicle(vehicles,vAlquilats);
+                    break;
+                case 2:
+                    mostrarVehicles(vehicles);
+                    break;
+                case 3:
+                    filtrarVehicles(vehicles);
+                    break;
+                case 4:
+                    filtrarVehiclesPerTipus(vehicles);
+                    break;
+                case 5:
+                    veureVehiclesPropis();
+                    break;
+                case 6:
+                    tornarVehicle(vehicles,vAlquilats);
+                    break;
+                case 7:
+                    sortir = true;
+                    break;
+            }
+        } while (!sortir);
     }
-    public void alquilarVehicle(List<Vehicle> vehiclesDisp, List<Vehicle> vAlquilats) {
+
+    private void alquilarVehicle(List<Vehicle> vehiclesDisp, List<Vehicle> vAlquilats) {
         int indice;
         int dies = 0;
         System.out.println("Aquest són els vehicles que tens disponibles");
-        Main.mostrarVehicles(vehiclesDisp);
+        mostrarVehicles(vehiclesDisp);
 
         do {
-            String matricula = Main.preguntarMatricula("Introdueix la matricula del vehicle que vols alquilar: ");
+            String matricula = preguntarMatricula("Introdueix la matricula del vehicle que vols alquilar: ");
             // buscar el cotxe a la llista de vehicles disponibles a partir de la matricula
-            indice = Main.buscarVehicle(vehiclesDisp,matricula);
+            indice = buscarVehicle(vehiclesDisp,matricula);
             if (indice != -1) {
 
                 dies = Main.controlErrorsInt("Quants dies el vols alquilar? (D'1 a 30 dies)",1,30);
@@ -89,83 +101,13 @@ public class Client implements Serializable {
 
                 //Escriure el vehicle alquilat al fitxer d'historial
                 GestioFitxers.escriureVehicle(vehicle, dies, this);
-
-                System.out.println("Vehicle alquilat correctament :)");
-
-
             } else {
                 System.out.println("Matricula no trobada");
             }
-
         } while ( indice == -1) ;
     }
 
-
-    public static void generarFactura(Vehicle vehicle,int dies){
-        System.out.println("========================================");
-        System.out.println("               FACTURA");
-        System.out.println("========================================");
-        System.out.println("Marca......: "+vehicle.getMarca());
-        System.out.println("Model......: "+ vehicle.getModel());
-        System.out.println("Preu Base..: "+vehicle.getPreuBase()+"€");
-        System.out.println("Dies.......: "+dies);
-        System.out.println("PvP........: "+vehicle.calcularPreu(dies)+"€");
-        System.out.println("Gràcies per la seva compra ");
-        System.out.println("========================================");
-    }
-
-    public void filtrarVehicles(List<Vehicle> vehicles){
-        System.out.println("Quin és el preu màxim que vols establir?");
-        double preuMax = input.nextDouble();
-        List<Vehicle> filtrada = GestorLloguers.filtrarPerPreu(vehicles,preuMax);
-        if (filtrada.isEmpty()){
-            System.out.println("No hi han vehicles disponibles per aquest preu");
-        } else {
-            for (int i = 0; i < filtrada.size(); i++) {
-                System.out.println(filtrada.get(i).toString());
-            }
-        }
-    }
-    @Override
-    public String toString() {
-        return "Client{" +
-                "vehiclesClient=" + vehiclesClient +
-                ", dni=" + dni +
-                ", nom='" + nom + '\'' +
-                ", cognom='" + cognom + '\'' +
-                '}';
-    }
-
-    public static Client comprovacioClient(List<Client> clients){
-        int index = -1;
-
-        do {
-        // demanem credencials
-        System.out.print("Introdueix el teu nom: ");
-        String nom = input.nextLine();
-
-        System.out.print("Introdueix el teu DNI: ");
-        String dni = input.nextLine();
-        // fem un bucle for amb una doble condicio per comprobar si les dos credencials coincideixen
-        for (int i = 0; i < clients.size(); i++) {
-            if (nom.equalsIgnoreCase(clients.get(i).getNom())){
-                if (dni.equalsIgnoreCase(clients.get(i).getDni())){
-                    index = i;
-                    break;
-                }
-                }
-            }
-        if (index !=-1){
-            return clients.get(index);
-        } else {
-            System.out.println("DNI o nom incorrecte");
-        }
-
-        }  while (index == -1);
-
-        return null;
-    }
-    public void veureVehiclesPropis(){
+    private void veureVehiclesPropis(){
         if (vehiclesClient.isEmpty()){
             System.out.println("Encara no tens vehicles alquilats.");
         } else {
@@ -181,7 +123,90 @@ public class Client implements Serializable {
             }
         }
     }
-    public void vehiclesPerTipus(List<Vehicle> vehicleList) {
+
+    private void tornarVehicle(List<Vehicle> vehicles, List<Vehicle> vAlquilats) {
+        //Veiem vehicles del client
+        veureVehiclesPropis();
+        int indice = -1;
+
+        //Si no te vehicles, no fem res
+        if (vehiclesClient.isEmpty()){
+            System.out.println("No tens ningun vehicle alquilat");
+        } else{
+            do {
+                String matricula = preguntarMatricula("Introdueix la matricula del vehicle que vols tornar: ");
+                 indice = buscarVehicle(vehiclesClient, matricula);
+
+                if (indice != -1) {
+                    Vehicle vehicle = vehiclesClient.get(indice);
+                    System.out.println("Vehicle tornat correctament :)");
+                    vehicles.add(vehicle);
+                    vAlquilats.remove(vehicle);
+                    vehiclesClient.remove(vehicle);
+                } else {
+                    System.out.println("Matricula no trobada");
+                }
+            } while (indice == -1);
+        }
+    }
+
+    private void generarFactura(Vehicle vehicle,int dies){
+        System.out.println("========================================");
+        System.out.println("               FACTURA");
+        System.out.println("========================================");
+        System.out.println("Marca......: "+vehicle.getMarca());
+        System.out.println("Model......: "+ vehicle.getModel());
+        System.out.println("Preu Base..: "+vehicle.getPreuBase()+"€");
+        System.out.println("Dies.......: "+dies);
+        System.out.println("PvP........: "+vehicle.calcularPreu(dies)+"€");
+        System.out.println("Vehicle alquilat correctament");
+        System.out.println("Gràcies per la seva compra :)");
+        System.out.println("========================================");
+    }
+
+    private void filtrarVehicles(List<Vehicle> vehicles){
+        System.out.println("Quin és el preu màxim que vols establir?");
+        double preuMax = input.nextDouble();
+
+        List<Vehicle> filtrada = GestorLloguers.filtrarPerPreu(vehicles,preuMax);
+        if (filtrada.isEmpty()){
+            System.out.println("No hi han vehicles disponibles per aquest preu");
+        } else {
+            for (int i = 0; i < filtrada.size(); i++) {
+                System.out.println(filtrada.get(i).toString());
+            }
+        }
+    }
+
+    public static Client comprovacioClient(List<Client> clients){
+        int index = -1;
+
+        do {
+            // demanem credencials
+            System.out.print("Introdueix el teu nom: ");
+            String nom = input.nextLine();
+
+            System.out.print("Introdueix el teu DNI: ");
+            String dni = input.nextLine();
+            // fem un bucle for amb una doble condicio per comprobar si les dos credencials coincideixen
+            for (int i = 0; i < clients.size(); i++) {
+                if (nom.equalsIgnoreCase(clients.get(i).getNom())){
+                    if (dni.equalsIgnoreCase(clients.get(i).getDni())){
+                        index = i;
+                        break;
+                    }
+                }
+            }
+            if (index !=-1){
+                return clients.get(index);
+            } else {
+                System.out.println("DNI o nom incorrecte");
+            }
+        }  while (index == -1);
+        return null;
+    }
+
+    private void filtrarVehiclesPerTipus(List<Vehicle> vehicleList) {
         int menu = Main.controlErrorsInt("Quin tipus de vehicle vols veure ?"+
                 "\n 1- Motos"+
                 "\n 2- Cotxes"+
@@ -218,43 +243,33 @@ public class Client implements Serializable {
             }
         }
     }
-    public void menuClient(List<Vehicle> vehicles,List<Vehicle> vAlquilats) {
-        boolean sortir = false;
-        do {
 
-            int menu = Main.controlErrorsInt("Venvingut a javaCar " + getNom()+", les opcions del menú són: " +
-                    "\n 1- Alquilar vehicle" +
-                    "\n 2- Veure vehicles disponibles" +
-                    "\n 3- Filtrar vehicles per preu" +
-                    "\n 4- Filtrar vehicles per tipus"+
-                    "\n 5- Veure els meus vehicles"+
-                    "\n 6- Tornar vehicle alquilat"+
-                    "\n 7- Sortir", 1, 7);
-
-            switch (menu) {
-                case 1:
-                    alquilarVehicle(vehicles,vAlquilats);
-                    break;
-                case 2:
-                    Main.mostrarVehicles(vehicles);
-                    break;
-                case 3:
-                    filtrarVehicles(vehicles);
-                    break;
-                case 4:
-                    vehiclesPerTipus(vehicles);
-                    break;
-                case 5:
-                    veureVehiclesPropis();
-                    break;
-                case 6:
-                    tornarVehicle(vehicles,vAlquilats);
-                    break;
-                case 7:
-                    sortir = true;
-                    break;
-            }
-        } while (!sortir);
+    private void mostrarVehicles(List<Vehicle> vehicles){
+        for (int i = 0; i < vehicles.size(); i++) {
+            System.out.println(vehicles.get(i).toString());
+        }
     }
+    private String preguntarMatricula(String missatge){
+        System.out.print(missatge);
+        return input.nextLine();
+    }
+    private int buscarVehicle(List<Vehicle> vehicleList, String matricula) {
+        int indice = -1;
 
+        // buscar el cotxe a la llista de vehicles alquilats   a partir de la matricula
+        for (int i = 0; i < vehicleList.size(); i++) {
+            // si coincideix calculem el preu a partir dels dies
+            if (matricula.equalsIgnoreCase(vehicleList.get(i).getMatricula())) {
+                indice = i;
+                break;
+            }
+        }
+        return indice;
+    }
+    @Override
+    public String toString() {
+        return "Dades Client: " + '\n' +
+                "DNI:" + dni + + '\n' +
+                "Nom: " + nom + ' ' + cognom;
+    }
 }
