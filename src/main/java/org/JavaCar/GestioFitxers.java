@@ -8,33 +8,43 @@ public class GestioFitxers {
     static String nomFitxer = "vehicles.dat";
     public static void escriureVehicle(Vehicle vehicle, int dies, Client client) {
         File file = new File(nomFitxer);
-        boolean append = file.exists();
+        //Mirem si el fitxer existeix
+        boolean afegir = file.exists();
 
-        try (FileOutputStream fos = new FileOutputStream(file, append);
-             ObjectOutputStream oos = append
-                     ? new AfegirFinalFitxer(fos)
-                     : new ObjectOutputStream(fos)) {
+        try {
+            FileOutputStream fitxer = new FileOutputStream(file, afegir);
+            ObjectOutputStream escritorFitxer;
+            //Si el fitxer existeix, afegim al final del fitxer
+            //Si no existeix, creem un nou fitxer i escribim
+            if (afegir)
+            {
+                escritorFitxer = new AfegirFinalFitxer(fitxer);
+            } else
+            {
+                escritorFitxer = new ObjectOutputStream(fitxer);
+            }
             InfoAlquiler info = new InfoAlquiler(vehicle, dies, client);
-            oos.writeObject(info);
+            escritorFitxer.writeObject(info);
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Error al escriure el fitxer. Si el fitxer s'ha creat, borra el fitxer si us plau");
         }
     }
 
     public static List<InfoAlquiler> llegirVehicles() {
         List<InfoAlquiler> infoList = new ArrayList<>();
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(nomFitxer))) {
+        try {
+            ObjectInputStream lectorFitxer = new ObjectInputStream(new FileInputStream(nomFitxer));
             while (true) {
                 try {
-                    InfoAlquiler info = (InfoAlquiler) ois.readObject();
+                    InfoAlquiler info = (InfoAlquiler) lectorFitxer.readObject();
                     infoList.add(info);
                 } catch (EOFException eof) {
-                    // End of file reached, break the loop.
+                    // Ha arribat al final del fitxer. Sortim del bucle
                     break;
                 }
             }
         } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
+            System.out.println("Error al llegir el fitxer o fitxer no trobat");
         }
         return infoList;
     }

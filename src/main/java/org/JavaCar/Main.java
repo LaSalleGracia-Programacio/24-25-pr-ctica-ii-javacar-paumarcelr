@@ -57,7 +57,10 @@ public class Main {
             switch (menu) {
                 case 1:
                     c = Client.comprovacioClient(clients);
-                    c.menuClient(vehicles,vAlquilats);
+                    if (c != null)
+                    {
+                        c.menuClient(vehicles,vAlquilats);
+                    }
                     break;
                 case 2:
                     if (Administrador.comprovacioAdmin())
