@@ -9,6 +9,10 @@ public class AfegirFinalFitxer extends ObjectOutputStream {
         super(out);
     }
 
+    //Fer que quan escriu en un fitxer, no posar headers
+    //Aixo es fa perque quan s'escriuen els vehicles d'un a un
+    //Posa headers cada vegada que s'escriu
+    //I dona errors a l'hora de llegir el fitxer
     @Override
     protected void writeStreamHeader() throws IOException {
         reset();
