@@ -8,6 +8,10 @@ public class Furgoneta extends Vehicle{
     public Furgoneta(String matricula, String marca, String model, double preuBase, int capacitatCarga, Motor motor, Roda[] rodes) {
         super(matricula, marca, model, preuBase, motor, rodes);
         this.capacitatCarga = capacitatCarga;
+        if (capacitatCarga >1000)
+        {
+            this.preuBase += 10;
+        }
     }
 
     public int getCapacitatCarga() {
@@ -16,12 +20,7 @@ public class Furgoneta extends Vehicle{
 
     @Override
     public double calcularPreu(int dies) {
-        if (capacitatCarga >1000)
-        {
-            return (preuBase + 10) * dies;
-        } else {
-            return super.calcularPreu(dies);
-        }
+        return super.calcularPreu(dies);
     }
 
     @Override
