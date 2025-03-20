@@ -1,10 +1,11 @@
 package org.JavaCar;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Client {
+public class Client implements Serializable {
     static Scanner input = new Scanner(System.in);
     private String dni;
     private String nom;
@@ -61,7 +62,7 @@ public class Client {
         }
 
     }
-    public  void alquilarVehicle(List<Vehicle> vehiclesDisp, List<Vehicle> vAlquilats) {
+    public void alquilarVehicle(List<Vehicle> vehiclesDisp, List<Vehicle> vAlquilats) {
         int indice;
         int dies = 0;
         System.out.println("Aquest són els vehicles que tens disponibles");
@@ -73,7 +74,7 @@ public class Client {
             indice = Main.buscarVehicle(vehiclesDisp,matricula);
             if (indice != -1) {
 
-                dies = Main.controlErrorsInt("Quants dies el vols alquilar? ",1,30);
+                dies = Main.controlErrorsInt("Quants dies el vols alquilar? (D'1 a 30 dies)",1,30);
 
                 Vehicle vehicle = vehiclesDisp.get(indice);
                 // mostrem el preu del cotxe que ha dit. Userfrendly mostrant marca i model

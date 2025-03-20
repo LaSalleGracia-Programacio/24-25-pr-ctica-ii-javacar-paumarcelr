@@ -12,7 +12,7 @@ public class Administrador {
     }
 
     public static void ingressosTotals(List<Vehicle> vehicles) {
-        int dies = Main.controlErrorsInt("Quants dies estan els cotxes alquilats?", 1, 30);
+        int dies = Main.controlErrorsInt("Quants dies estan els cotxes alquilats? (D'1 a 30 dies)", 1, 30);
         double ingressos = GestorLloguers.calcularIngressosTotals(vehicles, dies);
         System.out.println("Els ingressos totals actuals son: " + ingressos + "€");
     }
@@ -39,8 +39,8 @@ public class Administrador {
         {
             System.out.println(info.getVehicle().toString());
             System.out.println(info.getDiesAlquilats());
+            System.out.println(info.getClient().getNom());
         }
-
     }
 
     public static void calcularIngressosHistorial()
