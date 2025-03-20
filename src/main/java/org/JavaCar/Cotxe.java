@@ -18,6 +18,7 @@ public class Cotxe extends Vehicle{
                 "Model: " + model + "\n" +
                 "Matricula: " + matricula + "\n" +
                 "Preu/dia: " + preuBase + "\n" +
+                "Numero de places: " + nombrePlaces + "\n" +
                 "Tipus de motor: " + motor.getTipus() + "\n" +
                 "Marca de roda: " + rodes[0].getMarca() + "\n" +
                 "Any de matriculació: " + anyMatriculacio + "\n";

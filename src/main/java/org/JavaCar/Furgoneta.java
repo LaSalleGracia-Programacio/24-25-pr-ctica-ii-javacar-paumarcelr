@@ -26,33 +26,26 @@ public class Furgoneta extends Vehicle{
 
     @Override
     public String toString() {
-        if (autonomiaElectirc == 0) {
-            return "Furgoneta{" +
-                    ", matricula='" + matricula + '\'' +
-                    ", marca='" + marca + '\'' +
-                    ", model='" + model + '\'' +
-                    ", preuBase=" + preuBase +
-                    ", motor=" + motor +
-                    ", capacitatCarga=" + capacitatCarga +
-                    ", rodes=" + Arrays.toString(rodes) +
-                    ", enchufable=" + enchufable +
-                    ", anyMatriculacio=" + anyMatriculacio +
-                    ", etiqueta=" + etiqueta +
-                    '}';
-        } else {
-            return "Furgoneta{" +
-                    ", matricula='" + matricula + '\'' +
-                    ", marca='" + marca + '\'' +
-                    ", model='" + model + '\'' +
-                    ", preuBase=" + preuBase +
-                    ", motor=" + motor +
-                    ", capacitatCarga=" + capacitatCarga +
-                    ", rodes=" + Arrays.toString(rodes) +
-                    ", enchufable=" + enchufable +
-                    ", autonomiaElectirc=" + autonomiaElectirc +
-                    ", anyMatriculacio=" + anyMatriculacio +
-                    ", etiqueta=" + etiqueta +
-                    '}';
+        String furgonetaInfo = "Marca: " + marca + "\n" +
+                "Model: " + model + "\n" +
+                "Matricula: " + matricula + "\n" +
+                "Preu/dia: " + preuBase + "\n" +
+                "Capacitat de carga: " + capacitatCarga + "\n" +
+                "Tipus de motor: " + motor.getTipus() + "\n" +
+                "Marca de roda: " + rodes[0].getMarca() + "\n" +
+                "Any de matriculació: " + anyMatriculacio + "\n";
+
+        if (enchufable)
+        {
+            furgonetaInfo += "És enchufable \n";
         }
+
+        if (autonomiaElectirc != 0)
+        {
+            furgonetaInfo += "Velocitat en autonomia electrica: " + autonomiaElectirc  +"\n";
+        }
+
+        furgonetaInfo += "Eriqueta ambiental: " + etiqueta.toString();
+        return  furgonetaInfo;
     }
 }
