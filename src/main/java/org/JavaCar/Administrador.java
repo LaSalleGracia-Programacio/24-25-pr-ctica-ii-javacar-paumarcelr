@@ -11,13 +11,14 @@ public class Administrador {
         return contrasenya;
     }
 
+
     public static void ingressosTotals(List<Vehicle> vehicles) {
         int dies = Main.controlErrorsInt("Quants dies estan els cotxes alquilats? (D'1 a 30 dies)", 1, 30);
         double ingressos = GestorLloguers.calcularIngressosTotals(vehicles, dies);
         System.out.println("Els ingressos totals actuals son: " + ingressos + "€");
     }
 
-
+    //Treu per consola una llista dels vehicles alquilats amb els seus clients
     public static void veureVehiclesAlquilats(List<Client> clients)
     {
         System.out.println("Els vehicles que actualment estan alquilats son:");
@@ -31,6 +32,7 @@ public class Administrador {
         }
     }
 
+    //Llegeix l'historial del fitxer i treu per consola la informacio
     public static void veureHistorialVehicles()
     {
         List<InfoAlquiler> historial = GestioFitxers.llegirVehicles();
@@ -40,11 +42,12 @@ public class Administrador {
             System.out.println("===========INFO==========");
             System.out.println("Client: " + info.getClient().getNom());
             System.out.println(info.getVehicle().toString());
-            System.out.println(info.getDiesAlquilats());
+            System.out.println("Dies alquilats: " + info.getDiesAlquilats());
             System.out.println("=========================");
         }
     }
 
+    //Calcula els ingressos generats a paritr de l'historial del fitxer
     public static void calcularIngressosHistorial()
     {
         List<InfoAlquiler> historial = GestioFitxers.llegirVehicles();
@@ -90,6 +93,8 @@ public class Administrador {
     public static boolean comprovacioAdmin() {
         boolean login = false;
         int intents = 0;
+        //Si en 3 intents no hi ha login com a admin
+        //Es torna al menu principal
         while (intents < 3 && !login) {
             if (intents == 2) {
                 System.out.println("Atenció!! És l'últim intent");
