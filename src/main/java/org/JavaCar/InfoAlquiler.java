@@ -2,6 +2,8 @@ package org.JavaCar;
 
 import java.io.Serializable;
 
+//Classe Wrapper
+//Ens ajuda a poder escriure informacio a fitxers de manera facil
 public class InfoAlquiler implements Serializable {
     private Vehicle vehicle;
     private Client client;
