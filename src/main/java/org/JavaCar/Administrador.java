@@ -27,7 +27,9 @@ public class Administrador {
             System.out.println("Vehicles alquilats per " + client.getNom() + " " + client.getCognom() + ": ");
             for (Vehicle vehicle : client.getVehiclesClient())
             {
+                System.out.println("================");
                 System.out.println(vehicle.toString());
+                System.out.println("================");
             }
         }
     }

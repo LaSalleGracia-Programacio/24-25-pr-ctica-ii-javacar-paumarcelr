@@ -91,7 +91,7 @@ public class Client implements Serializable {
                 Vehicle vehicle = vehiclesDisp.get(indice);
                 // mostrem el preu del cotxe que ha dit. Userfrendly mostrant marca i model
                 double preu = vehicle.calcularPreu(dies);
-                System.out.println("El preu final del " + vehicle.getMarca() + " " + vehicle.getModel() + " és de :" + preu + "€");
+
                 // si confirma li mostrem missatge de confirmació, eliminem el cotxe de la llista de desponibles i l'agrfim a la llista d'alquilats
 
                 generarFactura(vehicle, dies);
@@ -166,7 +166,7 @@ public class Client implements Serializable {
         double preuMax = input.nextDouble();
 
         List<Vehicle> filtrada = GestorLloguers.filtrarPerPreu(vehicles, preuMax);
-        mostrarLlistaVehicleSiNoEstaVuida(filtrada);
+        mostrarLlistaVehicleSiNoEstaVuida("Actualment no hi han vehicles per aquest preu.",filtrada);
 
     }
 
@@ -232,7 +232,7 @@ public class Client implements Serializable {
             }
         }
         //Si hi ha vehicles disponibles, els mostrem
-       mostrarLlistaVehicleSiNoEstaVuida(vehiclesTipus);
+       mostrarLlistaVehicleSiNoEstaVuida("En aquest moment no hi ha ningun vehcile d'aquest tipus.",vehiclesTipus);
     }
 
     private void mostrarVehicles(List<Vehicle> vehicles) {
@@ -262,10 +262,10 @@ public class Client implements Serializable {
         return indice;
     }
 
-    private void mostrarLlistaVehicleSiNoEstaVuida(List<Vehicle> vehicles)
+    private void mostrarLlistaVehicleSiNoEstaVuida(String missatge,List<Vehicle> vehicles)
     {
         if (vehicles.isEmpty()) {
-            System.out.println("En aquest moment no hi han disponibles");
+            System.out.println(missatge);
         } else {
             mostrarVehicles(vehicles);
         }
