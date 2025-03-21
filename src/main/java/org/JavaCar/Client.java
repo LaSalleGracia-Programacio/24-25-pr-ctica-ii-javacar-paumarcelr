@@ -39,7 +39,7 @@ public class Client implements Serializable {
         boolean sortir = false;
         do {
 
-            int menu = Main.controlErrorsInt("Venvingut a javaCar " + getNom() + ", les opcions del menú són: " +
+            int menu = Main.controlErrorsInt("Benvingut a javaCar " + getNom() + ", les opcions del menú són: " +
                     "\n 1- Alquilar vehicle" +
                     "\n 2- Veure vehicles disponibles" +
                     "\n 3- Filtrar vehicles per preu" +
@@ -216,6 +216,7 @@ public class Client implements Serializable {
                 mostrarPerTipus(vehicleList, Furgoneta.class, "Aqui tens totes les furgonetes disponibles: ");
                 break;
             case 4:
+                System.out.println("Tornant enrere ...");
                 break;
         }
 
