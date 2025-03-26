@@ -19,4 +19,4 @@ Aquest projecte és una aplicació que permet llogar i tornar vehicles com a usu
 - **Calcular ingressos a partir de l'historial de vehicles**
 
 ## Descripció del codi
-En aquest projecte hem utilitzat la programació orientada en objectes i elements d'aquests com per exemple: classes, enums, interfaces i static classes. També hem utilitzat fitxers per guardar informació.
+En aquest projecte hem utilitzat la POO i elements d'aquest com per exemple: classes, enums, interfaces i static classes. També hem utilitzat fitxers per guardar informació.
